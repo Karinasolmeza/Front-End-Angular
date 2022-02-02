@@ -1,0 +1,27 @@
+{
+	"education": [{
+
+			"title": "Secundario/UBA",
+
+			"school": "Administración de Empresas/Psicologia",
+			"resume": "Secundario completo con titulo en Administración de empresas. Universitario incompleto en Psicologia."
+
+		},
+		{
+
+			"title": "Marketing Digital",
+
+			"school": "Instituto Tecnológico UOM / CFP N° 401",
+			"resume": "Estudios en Habilidades Digitales, Desarrollo Web, Comercio Electrónico, Gestión de Redes Sociales."
+
+		},
+		{
+
+			"title": "#SéProgramar",
+
+			"school": "Argentina Programa",
+			"resume": "#SéProgramar; Fundamentos (Gobstones), Programación Imperativa (JavaScript), Programación con Objetos (Ruby)."
+
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"skills": [{
+
+			"skillname": "HTML",
+
+			"score": "width:80%"
+
+		},
+
+		{
+
+			"skillname": "css",
+
+			"score": "width:90%"
+
+		},
+		{
+
+			"skillname": "JavaScript",
+
+			"score": "width:70%"
+
+		},
+                {
+
+			"skillname": "bootstrap",
+
+			"score": "width:80%"
+
+},
+{
+			"skillname": "Wordpress",
+
+			"score": "width:90%"},
+
+{
+			"skillname": "Joomla",
+
+			"score": "width:90%"
+}
+
+
+
+	]
+}

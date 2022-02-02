@@ -1,1 +1,423 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400");
+
+body{
+     font-family: 'Montserrat', sans-serif;
+     
+     background-color: #252024;
+
+}
+
+
+
+
+
+
+
+.page-navbar.navbar{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-navbar .navbar-nav .nav-item a{
+    font-weight: bold;
+}
+
+.page-navbar.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.page-navbar .logo{
+    font-size: 1.5rem;
+}
+
+.page-navbar.fixed-top + .page{
+    padding-top: 62px;
+}
+
+
+
+
+
+
+.gradient{
+    background: linear-gradient(120deg, #0a0a0a, #caccc6);
+    color: #fff !important;
+}
+
+
+.social-icons{
+    margin-top: 3px;
+    margin-bottom: 6px;
+    padding: 0px 40px 0px;
+  
+}
+
+
+
+.social-icons a{
+    font-size: 12px;
+    margin: 0 3px;
+    color: #ffffff;
+    border: 1px solid;
+    opacity: 0.75;
+    border-radius: 50%;
+    width: 36px;
+    display: inline-block;
+    height: 36px;
+    text-align: center;
+    background-color: #c5c9d2;
+    line-height: 34px;
+}
+
+.social-icons a:hover{
+    opacity: 1;
+}
+
+.camera-edit{
+    font-size: 12px;
+    margin: 0 3px;
+    color: #ffffff;
+    border: 1px solid;
+    opacity: 0.75;
+    border-radius: 20%;
+    width: 36px;
+    display: inline-block;
+    height: 36px;
+    text-align: center;
+    background-color: #c5c9d2;
+    line-height: 34px;
+
+    
+    position:relative;
+    bottom: 60px;
+    margin: auto;  
+        
+    }
+
+
+    .camera-edit-header{
+        font-size: 12px;
+        margin: 0 3px;
+        color: #ffffff;
+        border: 1px solid;
+        opacity: 0.75;
+        border-radius: 20%;
+        width: 36px;
+        display: inline-block;
+        height: 36px;
+        text-align: center;
+        background-color: #c5c9d2;
+        line-height: 34px;
+    
+        
+        position:absolute;
+        bottom: 120px;
+        right: 4em;
+
+    }
+
+    
+        
+    
+    .acerca-de-edit{
+        text-align: right;
+    }
+
+
+
+.login{
+    color: #fff;
+    background-color: #252024;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 10px 24px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+
+.login:hover{
+    background-color: #c5c9d2;
+}
+
+
+
+
+#headerwrap {
+    background: url(assets/img/headerAP.jpg) no-repeat center top;
+    margin-top: 60px;
+    padding-top: 140px;
+    text-align: center;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 500px;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  #headerwrap h1 {
+    font-size: 80px;
+    color: white;
+  }
+  
+  #headerwrap h3 {
+    font-size: 20px;
+    color: white;
+  }
+
+  .avatar{
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 100px;
+    margin-bottom: 0px;
+}
+
+.acerca-de{
+    border-bottom: #eee;
+}
+
+
+.cv-block{
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+.cv-block.info h2{
+    font-weight: bold;
+    margin-bottom: 70px;
+    color: #fff;
+}
+
+.cv-block.info h3{
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.cv-block.info .group{
+    max-width: 800px;
+    margin: auto;
+}
+
+.cv-block.info .group:not(:first-child){
+    margin-top: 90px;
+}
+
+.cv-block.info .group .periodo{
+    font-size: 0.8rem;
+    float: none;
+    font-weight: bold;
+    margin-top: 4px;
+    color: #6c757d;
+    opacity: 0.8;
+}
+
+.cv-block.info .group .organizacion{
+    font-size: 0.85em;
+    background-color: #a3ff0e;
+    display: inline-block;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2em;
+}
+
+.cv-block.info .educacion-grupo .organizacion{
+    background-color: #a3ff0e; 
+}
+
+.cv-block.info .group .item{
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+
+.cv-block.info .group h2 + .item{
+    padding-top:25px;
+    border-top: 1px solid #eee;
+}
+
+.cv-block.info .group .item .row{
+    margin-bottom: 5px;
+}
+
+.cv-block.info .experiencia-laboral h3,
+.cv-block.info .educacion h3{
+    font-weight: bold;
+    color: #fff;
+}
+
+
+.cv-block.info .acerca-de p{
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.2em;
+   
+}
+
+.progress-bar{
+    background-color: #e0ff00;
+}
+
+
+
+.cv-block .info-card.skills{
+    padding: 40px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+    height: 100%;
+}
+
+
+
+.cv-block .info-card.skills h3{
+    margin-top: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #eee;
+}
+
+.cv-block .info-card.skills .progress{
+    height: 3px;
+}
+
+.desc {
+    padding-top: 60px;
+    border-top: 1px solid #ddd;
+    
+    }
+    
+    .desc h2{
+
+    
+        text-align: center!important;
+        font-weight: bold;
+        margin-bottom: 70px;
+        color:#fff;
+        padding-top: 50px;
+        padding-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 32px;
+        
+       
+    }
+   
+    p {
+        line-height: 25px;
+        margin-bottom: 30px;
+        color:#eee;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+ }
+  
+ 
+
+.cv-block .info-card.contact-info .icon{
+    font-size: 1.3em;
+    color: #c9c9c9;
+    position: relative;
+    bottom: 4px;
+    text-align: center;
+}
+
+.info-card.contact-info{
+    padding-top: 32px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #eee;
+
+}
+.page-footer{
+    padding-top: 2px;
+   
+    text-align: center;
+    padding-bottom: 2px;
+}
+
+.page-footer a{
+    display: inline-block;
+    margin: 0px 10px;
+    color: #6b747a;
+    font-size: 15px;
+}
+
+.page-footer .links{
+    display: inline-block;
+}
+
+.page-footer .social-icons{
+    margin-top: 10px;
+    margin-bottom: 12px;
+   
+}
+
+.page-footer .social-icons a{
+    font-size: 15px;
+    margin: 0 3px;
+    color: #ffffff;
+    border: 1px solid;
+    opacity: 0.75;
+    border-radius: 50%;
+    width: 36px;
+    display: inline-block;
+    height: 36px;
+    text-align: center;
+    background-color: #c5c9d2;
+    line-height: 34px;
+}
+
+.page-footer .social-icons a:hover{
+    opacity: 1;
+}
+
+
+
+
+
+  @media (min-width: 576px){
+    .navbar {
+        padding-top: 1.2rem;
+        padding-bottom:1.2rem;
+      }
+   
+    }
+ 
+  
+@media (min-width: 768px) {
+
+    .cv-block .cv-block.info{
+        padding-bottom: 120px;
+        padding-top: 120px; 
+    
+    }
+
+
+
+.cv-block.info .group .period {
+    float: right; 
+}
+
+
+}
+
+
+
+    
+
