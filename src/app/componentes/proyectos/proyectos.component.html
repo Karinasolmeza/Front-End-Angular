@@ -1,23 +1,115 @@
 <div class="container desc" id="proyectos">
-        
+ 
+  
+
     <h2>Proyectos</h2>
     
+   
     <div class="row">
       
-      <div class="col-lg-2 col-lg-offset-1">
       
+      <div class="col-lg-2 col-lg-offset-1">
+     
       </div>
+      
+      
       <div class="col-lg-6">
+        
         <p><img class="img-responsive" [src]="miPorfolio.imgProject" alt="Imagen de Presentación web Cuestion Digital"></p>
+
+        
       </div>
+      
       <div class="col-lg-3">
+        <button  *ngIf="usuarioAutenticado"
+        data-bs-toggle="modal"
+        data-bs-target="#proyectosModal"><i class="ion-edit" title="edit"></i></button>
+
 
         <p>{{miPorfolio.name}}</p>
         <p class="text-muted">{{miPorfolio.description}}<br/><br/>
-            
+        
            
             <a href="https://cuestiondigital.com" class="btn btn-dark login" role="button" aria-disabled="true">Visitar</a>
            
          
         </p>
       </div>
+    </div>
+    </div>
+
+
+    !--modal--
+    <div
+      class="modal fade"
+      id="proyectosModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Añadir un Proyecto</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+    
+          <div class="modal-body">
+            <form [formGroup]="form">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre del Proyecto</label>
+                <input type="text" class="form-control" id="title" formControlName="name">
+    
+                <div *ngIf="name?.invalid && name?.touched">
+                   <div *ngIf="name?.errors?.['required']" class="text-danger">
+                       El Nombre del Proyecto es requerido
+    
+                      </div>
+        
+    
+    </div>
+              </div>
+    
+              <div class="mb-3">
+                <label for="description" class="form-label"
+                  >Breve descripción</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  formControlName="description"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="url" class="form-label">Imagen del Proyecto</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="url"
+                  formControlName="url"
+                />
+              </div>
+            </form>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" id="cerrarModalProyectos" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="guardarProyectos()">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+      
+
+    
+
+      
+    
+    

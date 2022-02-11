@@ -12,7 +12,7 @@
         </div>
        
         <div class="col-md-6">
-          <button><i class="ion-edit" title="edit"></i></button>
+          <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#experienciaModal"><i class="ion-edit" title="edit"></i></button>
           <button><i class="ion-close" title="delete"></i></button>
         </div>
   
@@ -22,6 +22,68 @@
   </div>
 
   
+<!-- Modal -->
+<div class="modal fade" id="experienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Experiencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="mb-3">
+            <label for="tipoExperiencia" class="form-label">Experiencia laboral</label>
+            <input type="text" class="form-control" id="tipoExperiencia" formControlName="tipoExperiencia">
+
+            <div *ngIf="tipoExperiencia?.invalid && tipoExperiencia?.touched">
+               <div *ngIf="tipoExperiencia?.errors?.['required']" class="text-danger">
+                   Su experiencia es requerida
+
+                  </div>
+             <div *ngIf="tipoExperiencia?.errors?.['minlength']" class="text-danger">
+                 Su descripcion deben tener mas de 10 caracteres.
+
+             </div>
+            </div>
+          
+          <div class="mb-3">
+            <label for="empresa" class="form-label"
+              >Nombre de la Empresa</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="empresa"
+              formControlName="empresa"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="detallesDeExperiencia" class="form-label"
+              >Detalles de su experiencia laboral</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="detallesDeExperiencia"
+              formControlName="detallesDeExperiencia"
+            />
+          </div>
+          </div>
+        </form>
+
+      <div class="modal-footer">
+        <button type="button" id="cerrarModalExperiencia" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarexperiencia">Guardar</button>
+      </div>
+            
+
+ 
+
+
 
 
  

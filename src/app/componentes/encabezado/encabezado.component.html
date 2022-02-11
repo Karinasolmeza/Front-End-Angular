@@ -2,51 +2,121 @@
   <div class="container">
     <div class="row centered">
       <div class="col-lg-12">
-        <h1>{{miPorfolio.fullName}}</h1>
-        <h3>{{miPorfolio.tituloEncabezado}}</h3>
-        <button data-bs-toggle="modal" data-bs-target="#encabezadoModal"><i class="ion-edit" title="edit"></i></button>
+        <h1>{{ miPorfolio.fullName }}</h1>
+        <h3>{{ miPorfolio.tituloEncabezado }}</h3>
+        <button
+          *ngIf="usuarioAutenticado"
+          data-bs-toggle="modal"
+          data-bs-target="#encabezadoModal"
+        >
+          <i class="ion-edit" title="edit"></i>
+        </button>
       </div>
     </div>
-    <button data-bs-toggle="modal" data-bs-target="#encabezadoModal" class="camera-edit-header"><i class="ion-ios-camera" title="imagenes-edit"></i></button>
+    <button
+      *ngIf="usuarioAutenticado"
+      data-bs-toggle="modal"
+      data-bs-target="#encabezadoModal"
+      class="camera-edit-header"
+    >
+      <i class="ion-ios-camera" title="imagenes-edit"></i>
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="avatar">
+      <img
+        class="img-fluid rounded-circle"
+        [src]="miPorfolio.avatarImg"
+        alt="Foto avatar Karina Meza"
+      />
+
+      <button
+        *ngIf="usuarioAutenticado"
+        class="camera-edit"
+        data-bs-toggle="modal"
+        data-bs-target="#encabezadoModal"
+      >
+        <i class="ion-ios-camera" title="imagenes-edit"></i>
+      </button>
     </div>
-    
+  </div>
 
-    <div class="container">
-      <div class="avatar">
-       
-        <img class="img-fluid rounded-circle" [src]="miPorfolio.avatarImg" alt="Foto avatar Karina Meza">
-
-       <button  class="camera-edit" data-bs-toggle="modal" data-bs-target="#encabezadoModal"><i class="ion-ios-camera" title="imagenes-edit"></i></button>
-      </div>
-    
-    </div>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-dark login"  data-bs-toggle="modal" data-bs-target="#encabezadoModal">
-  Editar
-</button>
+  <!-- Button trigger modal -->
+  <button
+    *ngIf="usuarioAutenticado"
+    type="button"
+    class="btn btn-dark login"
+    data-bs-toggle="modal"
+    data-bs-target="#encabezadoModal"
+  >
+    Editar
+  </button>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="encabezadoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="encabezadoModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Editar encabezado</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
       </div>
+
       <div class="modal-body">
-        ...
+        <form [formGroup]="form">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Nombre y apellido</label>
+            <input type="text" class="form-control" id="fullName" formControlName="fullName">
+
+            <div *ngIf="fullName?.invalid && fullName?.touched">
+               <div *ngIf="fullName?.errors?.['required']" class="text-danger">
+                   El nombre y apellido son requeridos.
+
+                  </div>
+             <div *ngIf="fullName?.errors?.['minlength']" class="text-danger">
+                 Nombre y apellido deben tener mas de 5 letras.
+  </div>
+
+</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="tituloEncabezado" class="form-label"
+              >Titulo de encabezado</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="tituloEncabezado"
+              formControlName="tituloEncabezado"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="url" class="form-label">Url de tu imagen</label>
+            <input
+              type="text"
+              class="form-control"
+              id="url"
+              formControlName="url"
+            />
+          </div>
+        </form>
       </div>
+      
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar cambios</button>
+        <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarEncabezado()">Guardar</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-

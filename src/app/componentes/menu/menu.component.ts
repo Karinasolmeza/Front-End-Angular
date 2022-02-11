@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-usuarioVerificado:boolean=true;//dede estar en false
+  usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
   constructor() { }
 
   ngOnInit(): void {

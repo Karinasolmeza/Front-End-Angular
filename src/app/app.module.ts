@@ -13,6 +13,8 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,11 +27,13 @@ import { HttpClientModule} from '@angular/common/http';
     ContactoComponent,
     FooterComponent,
     ProyectosComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

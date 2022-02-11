@@ -16,7 +16,10 @@
             <h4 class="organizacion">{{educacion.school}}</h4>
           </div>
           <div class="col-md-6">
-            <button><i class="ion-edit" title="edit"></i></button>
+            <button   *ngIf="usuarioAutenticado"
+            data-bs-toggle="modal"
+            data-bs-target="#educacionModal"
+          ><i class="ion-edit" title="edit"></i></button>
             <button><i class="ion-close" title="delete"></i></button>
           </div>
         </div>
@@ -29,6 +32,71 @@
     </div>
   </ul>
   
-   
+ !--modal--
+  <div
+    class="modal fade"
+    id="educacionModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar educación</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+  
+        <div class="modal-body">
+          <form [formGroup]="form">
+            <div class="mb-3">
+              <label for="title" class="form-label">Titulo recibido</label>
+              <input type="text" class="form-control" id="title" formControlName="title">
+  
+              <div *ngIf="title?.invalid && title?.touched">
+                 <div *ngIf="title?.errors?.['required']" class="text-danger">
+                     El titulo recibido es requerido
+  
+                    </div>
+      
+  
+  </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="school" class="form-label"
+                >Institución</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="school"
+                formControlName="school"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="resume" class="form-label">Resuma su titulo recibido</label>
+              <input
+                type="text"
+                class="form-control"
+                id="resume"
+                formControlName="resume"
+              />
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" id="cerrarModalEducacion" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="guardarEducacion()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
     
