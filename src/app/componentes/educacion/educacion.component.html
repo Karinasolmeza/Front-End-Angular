@@ -20,7 +20,8 @@
             data-bs-toggle="modal"
             data-bs-target="#educacionModal"
           ><i class="ion-edit" title="edit"></i></button>
-            <button><i class="ion-close" title="delete"></i></button>
+            <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
+            <button *ngIf="usuarioAutenticado"><i class="ion-android-add" title="add"></i></button>
           </div>
         </div>
         <p class="text-muted">{{educacion.resume}}</p>

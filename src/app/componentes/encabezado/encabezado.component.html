@@ -1,3 +1,4 @@
+
 <div id="headerwrap">
   <div class="container">
     <div class="row centered">
@@ -7,20 +8,12 @@
         <button
           *ngIf="usuarioAutenticado"
           data-bs-toggle="modal"
-          data-bs-target="#encabezadoModal"
-        >
-          <i class="ion-edit" title="edit"></i>
+          data-bs-target="#encabezadoModal"(click)="mostrarDatosEncabezado()">
+        <i class="ion-edit" title="edit"></i>
         </button>
       </div>
     </div>
-    <button
-      *ngIf="usuarioAutenticado"
-      data-bs-toggle="modal"
-      data-bs-target="#encabezadoModal"
-      class="camera-edit-header"
-    >
-      <i class="ion-ios-camera" title="imagenes-edit"></i>
-    </button>
+
   </div>
 
   <div class="container">
@@ -28,28 +21,20 @@
       <img
         class="img-fluid rounded-circle"
         [src]="miPorfolio.avatarImg"
-        alt="Foto avatar Karina Meza"
-      />
+        alt="Foto avatar Karina Meza"/>
 
       <button
         *ngIf="usuarioAutenticado"
         class="camera-edit"
         data-bs-toggle="modal"
-        data-bs-target="#encabezadoModal"
-      >
-        <i class="ion-ios-camera" title="imagenes-edit"></i>
+        data-bs-target="#encabezadoModal"(click)="mostrarDatosEncabezado()">
+      <i class="ion-ios-camera" title="imagenes-edit"></i>
       </button>
     </div>
   </div>
 
   <!-- Button trigger modal -->
-  <button
-    *ngIf="usuarioAutenticado"
-    type="button"
-    class="btn btn-dark login"
-    data-bs-toggle="modal"
-    data-bs-target="#encabezadoModal"(click)="mostrarDatosEncabezado()">Editar</button>
-</div>
+ 
 <!-- Modal -->
 <div
   class="modal fade"
