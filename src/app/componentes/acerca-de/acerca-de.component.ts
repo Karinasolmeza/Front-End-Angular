@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { About } from 'src/app/entidades/about';
 import { AboutService } from 'src/app/servicios/about.service';
 @Component({
   selector: 'app-acerca-de',
@@ -28,19 +29,40 @@ this.miPorfolio=data["aboutMe"];
 
     });
   }
+
+
+
   guardarAcercaDe(){
     if(this.form.valid){
-      alert("Enviar al backend (servicio)");
+
+      let aboutMe=this.form.controls["aboutMe"].value;
+      
+      let aboutEditar=new About(aboutMe)
+
+    this.datosPorfolio.editarDatosAbout(aboutEditar).subscribe(data =>{
+      this.miPorfolio=aboutEditar;
       this.form.reset();
       document.getElementById("cerrarAcercaDeModal")?.click();
+    
+    },
+  
+  error =>{
+    alert("error");
+  
+    })
     }
     else
     {
-      alert("Error");
+     
       this.form.markAllAsTouched();
+     
     }
-    }
+    
   }
+  mostrarDatosAbout(){
+    this.form.controls["aboutMe"].setValue(this.miPorfolio.acercaDe);
+  }
+}
 
-
+   
 

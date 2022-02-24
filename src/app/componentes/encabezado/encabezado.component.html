@@ -48,10 +48,7 @@
     type="button"
     class="btn btn-dark login"
     data-bs-toggle="modal"
-    data-bs-target="#encabezadoModal"
-  >
-    Editar
-  </button>
+    data-bs-target="#encabezadoModal"(click)="mostrarDatosEncabezado()">Editar</button>
 </div>
 <!-- Modal -->
 <div
@@ -116,7 +113,7 @@
       <div class="modal-footer">
         <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
         <button type="button" class="btn btn-primary" (click)="guardarEncabezado()">Guardar</button>
-      </div>
+     
     </div>
   </div>
 </div>

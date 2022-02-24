@@ -10,7 +10,8 @@
           
           <div class="acerca-de-edit">
           <div class="col-md-6">
-            <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#acercaDeModal"  ><i class="ion-edit" title="edit"></i></button>
+            <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#acercaDeModal"(click)="
+            mostrarDatosAbout()" ><i class="ion-edit" title="edit"></i></button>
             <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
           
       
@@ -51,7 +52,7 @@
 
       <div class="modal-footer">
         <button type="button" id="cerrarAcercaDeModal" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="guardarAcercaDe">Guardar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarAcercaDe()">Guardar</button>
       </div>
             
 
