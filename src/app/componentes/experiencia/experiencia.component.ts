@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Experiencia } from 'src/app/entidades/experiencia';
 import { ExperiencialaboralService } from 'src/app/servicios/experiencialaboral.service';
 @Component({
   selector: 'app-experiencia',
@@ -30,19 +31,37 @@ detallesDeExperiencia:['',[Validators.required]]
       this.miPorfolio=data["experiencia"];
     });
   }
-guardarexperiencia(){
-  if(this.form.valid){
-    alert("enviar al backend(servicio)");
-  this.form.reset();
-  document.getElementById("cerrarModalExperiencia")?.click();
+guardarExperiencia(){
+     if(this.form.valid){
 
+    let tipoExperiencia=this.form.controls["tipoExperiencia"].value;
+    let empresa=this.form.controls["empresa"].value;
+    let detallesDeExperiencia=this.form.controls["detallesDeExperiencia"].value;
+    let experienciaEditar=new Experiencia(tipoExperiencia, empresa, detallesDeExperiencia);
+  
+  
+
+  this.datosPorfolio.editarDatosExperiencia(experienciaEditar).subscribe(data=>{
+    this.miPorfolio=experienciaEditar;
+    this.form.reset();
+    document.getElementById("cerrarModalEncabezado")?.click();
+  
+
+  })
   }
+
 else
 {
-  alert("error");
+  
   this.form.markAllAsTouched();
 }
+
 }
 
+mostrarDatosExperiencia(){
+  this.form.controls["tipoExperiencia"].setValue(this.miPorfolio.tipoExperiencia);
+  this.form.controls["empresa"].setValue(this.miPorfolio.empresa);
+  this.form.controls["detallesDeExperiencia"].setValue(this.miPorfolio.detallesDeExperiencia);
+}
 
 }

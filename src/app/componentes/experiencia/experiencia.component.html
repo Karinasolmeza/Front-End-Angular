@@ -12,7 +12,7 @@
         </div>
        
         <div class="col-md-6">
-          <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#experienciaModal"><i class="ion-edit" title="edit"></i></button>
+          <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#experienciaModal" (click)="mostrarDatosExperiencia()"><i class="ion-edit" title="edit"></i></button>
           <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
           <button *ngIf="usuarioAutenticado"><i class="ion-android-add" title="add"></i></button>
         </div>
@@ -78,7 +78,7 @@
 
       <div class="modal-footer">
         <button type="button" id="cerrarModalExperiencia" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="guardarexperiencia()">Guardar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarExperiencia()">Guardar</button>
       </div>
             
 

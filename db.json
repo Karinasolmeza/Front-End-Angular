@@ -4,6 +4,90 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "tipoExperiencia": "Gestión de Medios Digitales",
+      "empresa": "Freelance",
+      "detallesDeExperiencia": "Desarrollo Web en Wordpress y Joomla, Edición y Diseño con Programas Adobe, Gestión de Redes Sociales, Comercio Electrónico.",
+      "id": 2
+    },
+    {
+      "tipoExperiencia": "Gestión de Medios Digitales",
+      "empresa": "Freelance",
+      "detallesDeExperiencia": "Desarrollo Web en Wordpress y Joomla, Edición y Diseño con Programas Adobe, Gestión de Redes Sociales, Comercio Electrónico.",
+      "id": 3
+    },
+    {
+      "tipoExperiencia": "klkkjsjhgfgshjkl",
+      "empresa": "argentina programa",
+      "detallesDeExperiencia": "hasjghjfhgjaksljhgfdsghkj",
+      "id": 4
+    },
+    {
+      "title": "importar redes ",
+      "school": "lkjhgjjjhh",
+      "resume": "kjhghgkjkl,",
+      "id": 5
+    },
+    {
+      "nameUbication": "Karina Meza Buenos Aires",
+      "mail": "karinasolmeza83@gmail.com",
+      "id": 6
+    },
+    {
+      "tipoExperiencia": "Gestión de Medios Digital",
+      "empresa": "Freelanc",
+      "detallesDeExperiencia": "Desarrollo  Joomla, Edición y Diseño con Programas Adobe, Gestión de Redes Sociales, Comercio Electrónico.",
+      "id": 7
+    },
+    {
+      "nameUbication": "Karina Meza Buenos Aires",
+      "mail": "karinasolmeza83@gmail.com",
+      "id": 8
+    },
+    {
+      "acercaDe": "Afición por la comunicación visual y el descubrimiento de nuevas tendencias en diseño, utilizandolos para mejorar la experiencia del Usuario.",
+      "id": 9
+    },
+    {
+      "fullName": "Karina Meza",
+      "tituloEncabezado": "Argentina Programa #YoProgramo",
+      "avatarImg": "https://www.freejpg.com.ar/image-900/1d/1de8/F100007892-chispas.jpg",
+      "id": 10
+    },
+    {
+      "name": "Cuestión Digital",
+      "description": "Soluciones Simples para Cuestiones Digitales. Diseño web moderno, adaptable a todos los dispositivos y auto-administrables para diferentes tipos de proyectos. Diseño de imagenes y videos. Gestión de redes sociales",
+      "imgProject": "https://www.freejpg.com.ar/image-900/1d/1de8/F100007892-chispas.jpg",
+      "id": 11
+    },
+    {
+      "fullName": "federico Diaz",
+      "tituloEncabezado": "Argentina Programa #SeProgramar",
+      "avatarImg": "https://www.freejpg.com.ar/image-900/1d/1de8/F100007892-chispas.jpg",
+      "id": 12
+    },
+    {
+      "fullName": "Karina Soledad Meza",
+      "tituloEncabezado": "Argentina Programa #SeProgramar",
+      "avatarImg": "https://www.google.com/imgres?imgurl=https%3A%2F%2Festaticos.muyinteresante.es%2Fmedia%2Fcache%2F1140x_thumb%2Fuploads%2Fimages%2Fgallery%2F59c4f5655bafe82c692a7052%2Fgato-marron_0.jpg&imgrefurl=https%3A%2F%2Fwww.muyinteresante.es%2Fmascotas%2Ffotos%2Flas-15-cosas-mas-extranas-que-hace-tu-gato-tienen-explicacion&tbnid=-mdabfgChzPeOM&vet=12ahUKEwiNi4jCoLz2AhW2B7kGHb8aDB0QMygAegUIARDYAQ..i&docid=e79tW-m8FJvqwM&w=1140&h=855&q=imagen%20gatos&ved=2ahUKEwiNi4jCoLz2AhW2B7kGHb8aDB0QMygAegUIARDYAQ",
+      "id": 13
+    },
+    {
+      "fullName": "federico",
+      "tituloEncabezado": "soy de prisma",
+      "avatarImg": "https://www.freejpg.com.ar/image-900/1d/1de8/F100007892-chispas.jpg",
+      "id": 14
+    },
+    {
+      "acercaDe": "Lkajsaxhsakdjksalñdklakñ de nuevas tendencias en diseño, utilizandolos para mejorar la experiencia del Usuario.",
+      "id": 15
+    },
+    {
+      "tipoExperiencia": "Gestión de Medios Digitales",
+      "empresa": "Prisma",
+      "detallesDeExperiencia": "Desarrollo Web en Wordpress y Joomla, Edición y Diseño con Programas Adobe, Gestión de Redes Sociales, Comercio Electrónico.",
+      "id": 16
     }
   ],
   "comments": [

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Persona } from '../entidades/persona';
+import { Encabezado } from '../entidades/encabezado';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +14,9 @@ export class PorfolioService {
   }
 
 
-editarDatosEncabezado(encabezado:Persona):Observable<any>{
-  return this.http.post('http://localhost:3000/posts',Persona);
+editarDatosEncabezado(encabezado:Encabezado):Observable<any>{
+  return this.http.post('http://localhost:3000/posts',encabezado);
 }
+
 
 }

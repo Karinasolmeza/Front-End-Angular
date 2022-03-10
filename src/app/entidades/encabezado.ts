@@ -1,4 +1,4 @@
-export class Persona{
+export class Encabezado{
     fullName: string;
     tituloEncabezado: String;
     avatarImg:string;

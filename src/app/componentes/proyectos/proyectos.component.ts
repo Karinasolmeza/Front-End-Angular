@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Projects } from 'src/app/entidades/projects';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
 @Component({
   selector: 'app-proyectos',
@@ -31,16 +32,39 @@ get name()
   }
   guardarProyectos(){
     if(this.form.valid){
-      alert("enviar al backend (servicio)");
+
+      let name=this.form.controls["name"].value;
+      let description=this.form.controls["description"].value;
+      let url=this.form.controls["url"].value;
+      let projectsEditar=new Projects(name, description, url);
+    
+    
+    this.datosPorfolio.editarDatosProjects(projectsEditar).subscribe(data=>{
+      this.miPorfolio=projectsEditar;
       this.form.reset();
       document.getElementById("cerrarModalProyectos")?.click();
+    },
+    error => {
+      alert("upps,contactar con el administrador");
+    
+    
+  
+    })
     }
-    else{
-      alert("ERROR");
+  
+  else
+  {
+    
     this.form.markAllAsTouched();
-    }
-
-    }
   }
-
+  
+  }
+  
+  mostrarDatosProjects(){
+    this.form.controls["name"].setValue(this.miPorfolio.name);
+    this.form.controls["description"].setValue(this.miPorfolio.description);
+    this.form.controls["imgProject"].setValue(this.miPorfolio.imgProject);
+  }
+  
+  }
 

@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { Persona } from 'src/app/entidades/persona';
-
-
-
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { Encabezado } from 'src/app/entidades/encabezado';
 
 @Component({
   selector: 'app-encabezado',
@@ -43,21 +39,21 @@ guardarEncabezado(){
   
     let fullName=this.form.controls["fullName"].value;
     let tituloEncabezado=this.form.controls["tituloEncabezado"].value;
-    let avatarImg=this.form.controls["avatarImg"].value;
+    let url=this.form.controls["url"].value;
   
-    let personaEditar=new Persona(fullName,tituloEncabezado,avatarImg);
+    let encabezadoEditar=new Encabezado(fullName,tituloEncabezado,url);
   
-  
-  
-   
-  
-  this.datosPorfolio.editarDatosEncabezado(personaEditar).subscribe(data=>{
-    this.miPorfolio=personaEditar;
+  this.datosPorfolio.editarDatosEncabezado(encabezadoEditar).subscribe(data=>{
+    this.miPorfolio=encabezadoEditar;
     this.form.reset();
   document.getElementById("cerrarModalEncabezado")?.click();
-  
-  
+  },
+
+  error => {
+    alert("upss, contacte al administrador");
+
   })
+
   }
   
   else
@@ -72,7 +68,8 @@ guardarEncabezado(){
 mostrarDatosEncabezado(){
   this.form.controls["fullName"].setValue(this.miPorfolio.fullName);
   this.form.controls["tituloEncabezado"].setValue(this.miPorfolio.tituloEncabezado);
-  this.form.controls["avatarImg"].setValue(this.miPorfolio.avatarImg);
+  this.form.controls["avatarImg"].setValue(this.miPorfolio.avatarImg)
+  
 }
 }
 

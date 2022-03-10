@@ -21,7 +21,7 @@
       </div>
       
       <div class="col-lg-3">
-        <button  *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#proyectosModal"><i class="ion-edit" title="edit"></i></button>
+        <button  *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#proyectosModal" (click)="mostrarDatosProjects()"><i class="ion-edit" title="edit"></i></button>
         <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
        <button *ngIf="usuarioAutenticado"><i class="ion-android-add" title="add"></i></button>
 

@@ -3,7 +3,7 @@
       <h2>Contacto</h2>
       <button  *ngIf="usuarioAutenticado"
       data-bs-toggle="modal"
-      data-bs-target="#contactoModal" ><i class="ion-edit" title="edit"></i></button>
+      data-bs-target="#contactoModal" (click)="mostrarDatosContact()"><i class="ion-edit" title="edit"></i></button>
 
       
    

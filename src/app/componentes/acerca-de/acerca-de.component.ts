@@ -20,7 +20,7 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
    }
    get acercaDe()
 {
-  return this.form.get("acercaDe")
+  return this.form.get("aboutMe")
 }
 
   ngOnInit(): void {
@@ -35,9 +35,9 @@ this.miPorfolio=data["aboutMe"];
   guardarAcercaDe(){
     if(this.form.valid){
 
-      let aboutMe=this.form.controls["aboutMe"].value;
+      let acercaDe=this.form.controls["acercaDe"].value;
       
-      let aboutEditar=new About(aboutMe)
+      let aboutEditar=new About(acercaDe)
 
     this.datosPorfolio.editarDatosAbout(aboutEditar).subscribe(data =>{
       this.miPorfolio=aboutEditar;
@@ -60,7 +60,7 @@ this.miPorfolio=data["aboutMe"];
     
   }
   mostrarDatosAbout(){
-    this.form.controls["aboutMe"].setValue(this.miPorfolio.acercaDe);
+    this.form.controls["acercaDe"].setValue(this.miPorfolio.acercaDe);
   }
 }
 

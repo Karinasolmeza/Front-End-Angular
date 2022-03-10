@@ -16,10 +16,7 @@
             <h4 class="organizacion">{{educacion.school}}</h4>
           </div>
           <div class="col-md-6">
-            <button   *ngIf="usuarioAutenticado"
-            data-bs-toggle="modal"
-            data-bs-target="#educacionModal"
-          ><i class="ion-edit" title="edit"></i></button>
+            <button   *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#educacionModal" (click)="mostrarDatosEducacion()"><i class="ion-edit" title="edit"></i></button>
             <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
             <button *ngIf="usuarioAutenticado"><i class="ion-android-add" title="add"></i></button>
           </div>
