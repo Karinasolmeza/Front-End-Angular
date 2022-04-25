@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Contact } from 'src/app/entidades/contact';
 import { ContactodatosService } from 'src/app/servicios/contactodatos.service';
 @Component({
@@ -8,12 +9,12 @@ import { ContactodatosService } from 'src/app/servicios/contactodatos.service';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
-miPorfolio:any;
+contact!:Contact;
 form:FormGroup;
 usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
 
 
-  constructor(private datosPorfolio:ContactodatosService, private miFormBuilder:FormBuilder) {
+  constructor(private miServicio:ContactodatosService, private miFormBuilder:FormBuilder,private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       nameUbication:['',[Validators.required]],
       mail:['',[Validators.required]]
@@ -26,28 +27,36 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
    }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-      this.miPorfolio=data["contact"];
+    this.miServicio.obtenerDatos().subscribe(data =>{
+      this.contact=data;
     });
   }
   
   guardarContacto(){
+
     if(this.form.valid){
+    
       let nameUbication=this.form.controls["nameUbication"].value;
+
       let mail=this.form.controls["mail"].value;
-      let contactEditar=new Contact(nameUbication,mail);
+
+      let contactEditar=new Contact(this.contact.id, nameUbication, mail);
     
     
   
-    this.datosPorfolio.editarDatosContact(contactEditar).subscribe(data=>{
-      this.miPorfolio=contactEditar;
+    this.miServicio.editarDatosContact(contactEditar).subscribe(data=>{
+      this.contact=contactEditar;
       this.form.reset();
+      this.toastr.info('Contacto actualizado con exito!', 'Tarjeta Actualizada');
+
       document.getElementById("cerrarModalContacto")?.click();
+    },
+  
+    error =>{
+      alert("error");
     
-  
-    })
-    }
-  
+      })
+      }
   else
   {
     
@@ -57,8 +66,8 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
   }
   
   mostrarDatosContact(){
-    this.form.controls["nameUbication"].setValue(this.miPorfolio.nameUbication);
-    this.form.controls["mail"].setValue(this.miPorfolio.mail);
+    this.form.controls["nameUbication"].setValue(this.contact.nameUbication);
+    this.form.controls["mail"].setValue(this.contact.mail);
   
   }
   

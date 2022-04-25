@@ -7,17 +7,42 @@ import { Educacion } from '../entidades/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
+  url:string="http://localhost:8080/educacion";
 
   constructor(private http:HttpClient) { }
-  obtenerDatos():Observable<any>{
-    return this.http.get('assets/data/education.json');
+
+
+  //getListEducacion():Observable<Educacion[]>{
+    //return this.http.get<Educacion[]>(this.url+"/1");
+ // }
+
+  
+  getListEducacion():Observable<Educacion[]>{
+    return this.http.get<Educacion[]>(this.url);
   }
+  updateEducacion(id:number, educacion:any):Observable<any>{
+    return this.http.put(this.url +"/" +id,educacion)
 
-  editarDatosEducacion(educacion:Educacion):Observable<any>{
-    return this.http.post('http://localhost:3000/posts',educacion)
+  }
+  
+  saveEducacion(educacion:any):Observable<any>{
+    return this.http.post(this.url,educacion)
 
+  }
+ 
+  deleteEducacion(id:number):Observable<any>{
+    return this.http.delete(this.url+"/"+id)
   }
 
 
 
 }
+
+  
+
+
+
+ 
+
+
+

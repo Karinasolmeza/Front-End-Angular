@@ -1,25 +1,35 @@
 
  
-    <section class="cv-block info">
+    <section class="cv-block info" >
      <div class="container">
-        <div class="acerca grupo" id="acerca-de">
+        <div class="acerca grupo" id="acerca-de" id="eliminarAcercaDe" >
+          
+          <div class="acerca-de-edit">
+            <div class="acerca-de-edit">
+              <div class="col-md-6">
+               
+                <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#acercaDeModal"(click)="mostrarDatosAbout()"><i class="ion-edit" title="edit"></i></button>
+              </div>
+              </div>
+        
+            </div>
+     
+            
           <h2 class="text-center">Acerca de</h2>
-        <p class="text-center text-muted">{{miPorfolio.acercaDe}} </p>
+
+          
+        </div>
+          <p class="text-center text-muted" >{{aboutMe.acercaDe}} </p>
   
           
           
           <div class="acerca-de-edit">
           <div class="col-md-6">
-            <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#acercaDeModal"(click)="
-            mostrarDatosAbout()"><i class="ion-edit" title="edit"></i></button>
-            <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
            
-          
       
           </div>
           </div>
-      
-
+    
         </div>
  
 

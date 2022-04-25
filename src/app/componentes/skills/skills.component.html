@@ -1,67 +1,97 @@
-<section class="cv-block info">
+<section class="cv-block info" >
+  <div class="container">
+    <div class="text-center" >
+      <button *ngIf="usuarioAutenticado"data-bs-toggle="modal" data-bs-target="#skillModal" ><i class="ion-android-add" title="add"></i></button>
+            <h2>Skills</h2>
+
+           
+    </div>
     
+    <ul class="item-list">
+  <li *ngFor="let skills of skillsList" >
   <div class="group" id="skills">
-  
+    
       <div class="row">
-        <div class="col-md-6">
-          <div class="skills info-card">
-            <h2>Skills</h2>
-            <h3>HTML</h3>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-
-  
-  valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+        <div class="col-md-12">
+            <div class="skills info-card">
+              <div class="col-md-6" >
+                <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#skillModal"(click)="editarSkills(skills)"><i class="ion-edit" title="edit"></i></button>
+                <button *ngIf="usuarioAutenticado" class=" btn-danger btn-sm" (click)="eliminarSkills(skills.id)"><i class="ion-close" title="delete"></i></button>
+               
               </div>
+            <h3>{{skills.skillName}}</h3>
+            
+            
+           <!-- <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style.width="{{skills.score +'%'}} "> -->
+
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  [ngStyle]="{'width' : skills.score +'%'}"
+                aria-valuemin="0" aria-valuemax="100" >
+                </div>
+           
             </div>
-            <h3>CSS</h3>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-
-  
-  valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-              </div>
+            
             </div>
-            <h3>JavaScript</h3>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-
-  
-  valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width:70%">
-              </div>
             </div>
-          </div>
         </div>
-        <div class="col-md-6">
-          <div class="skills info-card">
-            <h2>Skills</h2>
-            <h3>Bootstrap</h3>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-
-  
-  valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width:80%">
-              </div>
-            </div>
-            <h3>Wordpress</h3>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-
-  
-  valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width:90%">
-              </div>
-            </div>
-            <h3>Joomla</h3>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-
-  
-  valuenow="70"
-              aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-              </div>
-            </div>
-          </div>
-        
+       
       </div>
-    </div>  
+      
+  </li>
+    </ul>
   
+
+
+    
+          
+  
+
+          <!-- Modal -->
+<div class="modal fade" id="skillModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> {{accion}} Skill</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="mb-3">
+            <label for="skillName" class="form-label">Tipo de Skill</label>
+            <input type="text" class="form-control" id="skillName" formControlName="skillName">
+
+            <div *ngIf="skillName?.invalid && skillName?.touched">
+               <div *ngIf="skillName?.errors?.['required']" class="text-danger">
+                   Su habilidad es requerida
+
+                  </div>
+          
+            </div>
+          
+          <div class="mb-3">
+            <label for="score" class="form-label"
+              >Nivel de su habilidad del 1 al 100 </label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="score"
+              formControlName="score"
+            />
+          </div>
+
+          
+          </div>
+        </form>
+
+      <div class="modal-footer">
+        <button type="button" id="cerrarModalSkill" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button [disabled]="this.form.invalid" type="submit"   class="btn btn-primary" (click)="guardarSkills()" >Guardar</button>
+      </div>
+            
+      
   

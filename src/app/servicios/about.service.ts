@@ -1,24 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { About } from '../entidades/about';
+import { AboutMe } from '../entidades/aboutMe';
 @Injectable({
   providedIn: 'root'
 })
 export class AboutService {
+  url:string="http://localhost:8080/aboutme";
 
-  constructor(private http:HttpClient){ }
+  constructor(private http:HttpClient){}
 
   
-  obtenerDatos():Observable<any>{
-    return this.http.get('assets/data/AboutMe.json');
+  obtenerDatosAbout():Observable<AboutMe>{
+    return this.http.get<AboutMe>(this.url+"/1");
+ }
+
+ 
+
+
+
+  editarDatosAbout(aboutMe:AboutMe):Observable<any>{
+    return this.http.put(this.url,aboutMe)
+
   }
 
-  editarDatosAbout(about:About):Observable<any>{
-    return this.http.post('http://localhost:3000/posts',about)
+ 
+
+
+  eliminarDatosAbout(about:AboutMe):Observable<any>{
+    return this.http.delete(this.url+"/1");
 
   }
-
+ 
 
 }
 

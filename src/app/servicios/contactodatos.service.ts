@@ -6,14 +6,16 @@ import { Contact } from '../entidades/contact';
   providedIn: 'root'
 })
 export class ContactodatosService {
-
+  url:string="http://localhost:8080/contact";
   constructor(private http:HttpClient) { }
-  obtenerDatos():Observable<any>{
-    return this.http.get('assets/data/contact.json');
+
+
+  obtenerDatos():Observable<Contact>{
+    return this.http.get<Contact>(this.url+"/1");
   }
 
   editarDatosContact(contact:Contact):Observable<any>{
-    return this.http.post('http://localhost:3000/posts',contact)
+    return this.http.post(this.url,contact)
 
   }
 

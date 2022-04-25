@@ -6,19 +6,29 @@ import { Projects } from '../entidades/projects';
   providedIn: 'root'
 })
 export class ProyectosService {
+  url:string="http://localhost:8080/projects";
 
 
   constructor(private http:HttpClient) { }
 
+  getListProjects():Observable<Projects[]>{
+    return this.http.get<Projects[]>(this.url);
+  }
+  
+  updateProjects(id:number, projects:any):Observable<any>{
+    return this.http.put(this.url +"/" +id,projects)
 
-  obtenerDatos():Observable<any>{
-    return this.http.get('assets/data/projects.json');
+  }
+  
+  saveProjects(projects:any):Observable<any>{
+    return this.http.post(this.url,projects)
+
+  }
+ 
+  deleteProjects(id:number):Observable<any>{
+    return this.http.delete(this.url+"/"+id)
   }
 
-  editarDatosProjects(projects:Projects):Observable<any>{
-    return this.http.post('http://localhost:3000/posts',projects)
-
-  }
 
 }
 

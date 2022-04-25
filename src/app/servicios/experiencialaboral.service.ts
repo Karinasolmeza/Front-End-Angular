@@ -6,21 +6,29 @@ import { Experiencia } from '../entidades/experiencia';
   providedIn: 'root'
 })
 export class ExperiencialaboralService {
+  url:string="http://localhost:8080/experiencia";
 
   constructor(private http:HttpClient){ }
 
   
-  obtenerDatos():Observable<any>{
+  getListExperiencia():Observable<Experiencia[]>{
+    return this.http.get<Experiencia[]>(this.url);
+  }
 
-    return this.http.get('assets/data/experiencia.json');
+  updateExperiencia(id:number, experiencia:any):Observable<any>{
+    return this.http.put(this.url +"/" +id,experiencia)
+
+  }
+  
+  saveExperiencia(experiencia:any):Observable<any>{
+    return this.http.post(this.url,experiencia)
+
+  }
+ 
+  deleteExperiencia(id:number):Observable<any>{
+    return this.http.delete(this.url+"/"+id)
   }
 
 
-
-  editarDatosExperiencia(experiencia:Experiencia):Observable<any>{
-    return this.http.post('http://localhost:3000/posts',experiencia)
-
-  }
 
 }
-

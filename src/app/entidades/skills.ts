@@ -1,12 +1,17 @@
-export class Experiencia{
-    skillname: string;
-    score: String;
+
+export class Skills{
+    id:number;
+    skillName: string;
+    score: number;
+    idPersona:number;
     
 
-    constructor(skillname:string, score:String)
+    constructor(id:number, skillName:string, score:number ,idPersona:number)
 {
-    this.skillname=skillname;
+    this.id=id;
+    this.skillName=skillName;
     this.score=score;
+    this.idPersona=idPersona;
     
 }
 }

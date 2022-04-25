@@ -1,36 +1,41 @@
-<section class="cv-block info">
+
+ <section class="cv-block info group">
   <div class="container">
-  
-    <ul class="items-list"> 
-      <h2 class="text-center">Educación</h2>
-      <li *ngFor="let educacion of educacionlist">
-      
+
+  <div class="text-center">
+    <button *ngIf="usuarioAutenticado"data-bs-toggle="modal" data-bs-target="#educacionModal" ><i class="ion-android-add" title="add"></i></button>
+    <h2 class="text-center">Educación </h2>
+  </div>
+    
+
+    <ul class="items-list" > 
+      <li *ngFor="let educacion of educacionList" >
+       
         
-    <div class= "educacion-group group" id="educacion">
+    <div class= "educacion-group group" id="educacion"  >
   
       
-      <div class="item">
-        <div class="row">
+         <div class="item"  >
+          <div class="row">
           <div class="col-md-6">
             <h3>{{educacion.title}}</h3>
             <h4 class="organizacion">{{educacion.school}}</h4>
           </div>
-          <div class="col-md-6">
-            <button   *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#educacionModal" (click)="mostrarDatosEducacion()"><i class="ion-edit" title="edit"></i></button>
-            <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
-            <button *ngIf="usuarioAutenticado"><i class="ion-android-add" title="add"></i></button>
+          <div class="col-md-6" >
+ <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#educacionModal" (click)="editarEducacion(educacion)"><i class="ion-edit" title="edit"></i></button>
+<button *ngIf="usuarioAutenticado" class=" btn-danger btn-sm" (click)="eliminarEducacion(educacion.id)"><i class="ion-close" title="delete"></i></button>
+            
           </div>
-        </div>
+        
         <p class="text-muted">{{educacion.resume}}</p>
       </div>
-      
-    
-    
     
     </div>
-  </ul>
+    </div>
+      </li>
+    </ul>
   
- !--modal--
+ <!--modal-->
   <div
     class="modal fade"
     id="educacionModal"
@@ -40,30 +45,25 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
+
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar educación</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel"> {{accion}} Educación </h5>
+          <button type="buttton class= "btn-close data-bs-dismiss="modal" aria-label="Close" ></button>
         </div>
   
         <div class="modal-body">
-          <form [formGroup]="form">
+
+          <form [formGroup]="form" (ngSubmit)="guardarEducacion()">
             <div class="mb-3">
               <label for="title" class="form-label">Titulo recibido</label>
               <input type="text" class="form-control" id="title" formControlName="title">
   
-              <div *ngIf="title?.invalid && title?.touched">
-                 <div *ngIf="title?.errors?.['required']" class="text-danger">
-                     El titulo recibido es requerido
-  
+              
                     </div>
       
   
-  </div>
-            </div>
+            
+            
   
             <div class="mb-3">
               <label for="school" class="form-label"
@@ -85,16 +85,13 @@
                 formControlName="resume"
               />
             </div>
+          
+      
           </form>
-        </div>
-        
         <div class="modal-footer">
           <button type="button" id="cerrarModalEducacion" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
-          <button type="button" class="btn btn-primary" (click)="guardarEducacion()">Guardar</button>
+          <button [disabled]="this.form.invalid" type="submit"   class="btn btn-primary" (click)="guardarEducacion()" >Guardar</button>
         </div>
-      </div>
-    </div>
-  </div>
+   
   
   
-    

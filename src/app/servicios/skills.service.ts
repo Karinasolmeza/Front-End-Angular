@@ -1,14 +1,34 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { Skills } from "../entidades/skills";
 @Injectable({
   providedIn: 'root'
 })
 export class SkillsService {
+  url:string="http://localhost:8080/skills";
 
   constructor(private http:HttpClient) { }
-obtenerDatos():Observable<any>{
-  return this.http.get('assets/data/skills.json')
-}
+
+
+  getListSkills():Observable<Skills[]>{
+    return this.http.get<Skills[]>(this.url);
+  }
+
+  updateSkills(id:number, skills:any):Observable<any>{
+    return this.http.put(this.url +"/" +id,skills)
+
+  }
+  
+  saveSkills(skills:any):Observable<any>{
+    return this.http.post(this.url,skills)
+
+  }
+ 
+  deleteSkills(id:number):Observable<any>{
+    return this.http.delete(this.url+"/"+id)
+  }
+
+
 }
 

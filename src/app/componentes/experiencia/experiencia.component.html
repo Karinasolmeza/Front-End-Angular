@@ -1,34 +1,43 @@
-<section class="cv-block info">
+<section class="cv-block info group">
 <div class="container">
-<div class="experiencia-laboral group" id="experiencia-laboral">
 
-
-    <h2 class="text-center">Experiencia Laboral</h2>
-    <div class="item">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>{{miPorfolio.tipoExperiencia}}</h3>
-          <h4 class="organizacion">{{miPorfolio.empresa}}</h4>
-        </div>
-       
-        <div class="col-md-6">
-          <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#experienciaModal" (click)="mostrarDatosExperiencia()"><i class="ion-edit" title="edit"></i></button>
-          <button *ngIf="usuarioAutenticado"><i class="ion-close" title="delete"></i></button>
-          <button *ngIf="usuarioAutenticado"><i class="ion-android-add" title="add"></i></button>
-        </div>
-  
-      </div>
-      <p class="text-muted">{{miPorfolio.detallesDeExperiencia}}</p>
-    </div>
+<ul class="items-list" >
+  <div class="text-center">
+  <button *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#experienciaModal"><i class="ion-android-add" title="add"></i></button>
+  <h2 class="text-center">Experiencia Laboral</h2>
   </div>
 
-  
+<li *ngFor="let experiencia of experienciaList">
+
+  <div class="experiencia-laboral group" id="experiencia-laboral" id="agregarExperiencia" id="eliminarExperiencia">
+
+<div class="item">
+<div class="row">
+  <div class="col-md-6">
+    <h3>{{experiencia.tipoExperiencia}}</h3>
+    <h4 class="organizacion">{{experiencia.empresa}}</h4>
+  </div>
+  <div class="col-md-6">
+    <button *ngIf="usuarioAutenticado"  data-bs-toggle="modal" data-bs-target="#experienciaModal"(click)="editarExperiencia(experiencia)" ><i class="ion-edit" title="edit"></i></button>
+    <button *ngIf="usuarioAutenticado"class=" btn-danger btn-sm"(click)="eliminarExperiencia(experiencia.id)"><i class="ion-close" title="delete"></i></button>
+   
+  </div>
+  <p class="text-muted">{{experiencia.detallesDeExperiencia}}</p>
+    </div>
+  </div>
+</div>
+
+</li>
+</ul>
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="experienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Experiencia</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> {{accion}} Experiencia</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -39,7 +48,7 @@
             <label for="tipoExperiencia" class="form-label">Experiencia laboral</label>
             <input type="text" class="form-control" id="tipoExperiencia" formControlName="tipoExperiencia">
 
-            <div *ngIf="tipoExperiencia?.invalid && tipoExperiencia?.touched">
+          <div *ngIf="tipoExperiencia?.invalid && tipoExperiencia?.touched">
                <div *ngIf="tipoExperiencia?.errors?.['required']" class="text-danger">
                    Su experiencia es requerida
 
@@ -47,8 +56,8 @@
              <div *ngIf="tipoExperiencia?.errors?.['minlength']" class="text-danger">
                  Su descripcion deben tener mas de 10 caracteres.
 
-             </div>
-            </div>
+             </div> 
+            </div> 
           
           <div class="mb-3">
             <label for="empresa" class="form-label"
@@ -73,16 +82,19 @@
               formControlName="detallesDeExperiencia"
             />
           </div>
-          </div>
-        </form>
+          
+        
 
       <div class="modal-footer">
         <button type="button" id="cerrarModalExperiencia" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="guardarExperiencia()">Guardar</button>
+        
+        <button [disabled]="this.form.invalid" type="submit"   class="btn btn-primary" (click)="guardarExperiencia()" >Guardar</button>
       </div>
             
-
- 
+      
+  
+  
+    
 
 
 

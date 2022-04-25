@@ -3,8 +3,8 @@
   <div class="container">
     <div class="row centered">
       <div class="col-lg-12">
-        <h1>{{ miPorfolio.fullName }}</h1>
-        <h3>{{ miPorfolio.tituloEncabezado }}</h3>
+        <h1>{{ persona.fullName }}</h1>
+        <h3>{{ persona.tituloEncabezado }}</h3>
         <button
           *ngIf="usuarioAutenticado"
           data-bs-toggle="modal"
@@ -20,7 +20,7 @@
     <div class="avatar">
       <img
         class="img-fluid rounded-circle"
-        [src]="miPorfolio.avatarImg"
+        [src]="persona.avatarImg"
         alt="Foto avatar Karina Meza"/>
 
       <button

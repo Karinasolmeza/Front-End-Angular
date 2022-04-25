@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Educacion } from 'src/app/entidades/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 @Component({
@@ -8,57 +9,111 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
-educacionlist:any;
+educacionList!: Educacion[];
+//educacionList: any[] = [];
 form:FormGroup;
-usuarioAutenticado:boolean=true;//debe ir en falso para ocultar botones 
-  
+accion = 'Agregar';
+id: number | undefined;
 
-  constructor(private datosPorfolio:EducacionService, private miFormBuilder:FormBuilder) {
+
+usuarioAutenticado:boolean=true;//debe ir en falso para ocultar botones 
+
+  constructor(private miServicio:EducacionService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       title:['',[Validators.required]],
       school:['',[Validators.required]],
       resume:['',[Validators.required]]
     })
    }
-get title(){
-  return this.form.get("title")
+
+
+ngOnInit(): void {
+
+  this.obtenerEducacion();
+
 }
-  ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-      this.educacionlist=data.education;
-    });
-  }
-guardarEducacion(){
-  if(this.form.valid){
-
-    let title=this.form.controls["title"].value;
-    let school=this.form.controls["school"].value;
-    let resume=this.form.controls["resume"].value;
-    let educacionEditar=new Educacion(title, school, resume);
 
 
-    this.datosPorfolio.editarDatosEducacion(educacionEditar).subscribe(data=>{
-      this.educacionlist=educacionEditar;
-      this.form.reset();
-      document.getElementById("cerrarModalEncabezado")?.click();
-    
-  
+  obtenerEducacion() {
+    this.miServicio.getListEducacion().subscribe(data => {
+   
+      this.educacionList = data;
+      
+    }, error => {
+      console.log(error);
     })
+  }
+ 
+
+  guardarEducacion() {
+
+    const educacion: any = {
+      title: this.form.get('title')?.value,
+      school: this.form.get('school')?.value,
+      resume: this.form.get('resume')?.value,
+      idPersona: this.form.get('idPersona')?.value,
+   
     }
-  
-  else
-  {
+
+    if (this.id == undefined) {
+      // Agregamos una nueva educacion
+        this.miServicio.saveEducacion(educacion).subscribe(data => {
+          this.toastr.success('Educacion registrada con exito!', 'Educacion Registrada');
+          this.obtenerEducacion();
+          this.form.reset();
+        }, error => {
+          this.toastr.error('Opss.. ocurrio un error','Error')
+          console.log(error);
+        })
+    } else {
+
+      educacion.id = this.id;
+      // Editamos educacion
+        this.miServicio.updateEducacion(this.id,educacion).subscribe(data => {
+        this.form.reset();
+        this.accion = 'Agregar';
+        this.id = undefined;
+        this.toastr.info('La tarjeta fue actualizada con exito!', 'Tarjeta Actualizada');
+        this.obtenerEducacion();
+      }, error => {
+        console.log(error);
+      })
+
+    }
+
+   
+  }
+ 
+  editarEducacion(educacion: any) {
+    this.accion = 'Editar';
+    this.id = educacion.id;
     
-    this.form.markAllAsTouched();
+
+    this.form.patchValue({
+     
+      title: educacion.title,
+      school: educacion.school,
+      resume: educacion.resume,
+    // idPersona:educacion.idPersona,
+    })
   }
+
+
   
-  }
+eliminarEducacion(id: number){
   
-  mostrarDatosEducacion(){
-    this.form.controls["title"].setValue(this.educacionlist.title);
-    this.form.controls["school"].setValue(this.educacionlist.school);
-    this.form.controls["resume"].setValue(this.educacionlist.resume);
-  }
+  this.miServicio.deleteEducacion(id).subscribe(data=>{
+    this.toastr.error( 'Educacion fue eliminada con exito!','Educacion eliminada');
+    this.obtenerEducacion();
+  })
+}
+}
+
   
-  }
-  
+
+
+
+
+
+
+

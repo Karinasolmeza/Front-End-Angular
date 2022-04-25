@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { About } from 'src/app/entidades/about';
+import { ToastrService } from 'ngx-toastr';
+import { AboutMe } from 'src/app/entidades/aboutMe';
 import { AboutService } from 'src/app/servicios/about.service';
 @Component({
   selector: 'app-acerca-de',
@@ -9,11 +10,11 @@ import { AboutService } from 'src/app/servicios/about.service';
 })
 export class AcercaDeComponent implements OnInit {
 
-miPorfolio:any;
+aboutMe!:AboutMe;
 form:FormGroup;
 usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
 
-  constructor(private datosPorfolio:AboutService,  private miFormBuilder:FormBuilder) {
+  constructor(private miServicio:AboutService,  private miFormBuilder:FormBuilder,private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       acercaDe:['',[Validators.required,Validators.minLength(10)]]
     })
@@ -24,10 +25,11 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
 }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-this.miPorfolio=data["aboutMe"];
+    this.miServicio.obtenerDatosAbout().subscribe(data =>{
+    this.aboutMe=data;
 
     });
+
   }
 
 
@@ -37,10 +39,11 @@ this.miPorfolio=data["aboutMe"];
 
       let acercaDe=this.form.controls["acercaDe"].value;
       
-      let aboutEditar=new About(acercaDe)
+      let aboutEditar=new AboutMe(this.aboutMe.id, acercaDe)
 
-    this.datosPorfolio.editarDatosAbout(aboutEditar).subscribe(data =>{
-      this.miPorfolio=aboutEditar;
+    this.miServicio.editarDatosAbout(aboutEditar).subscribe(data =>{
+      this.aboutMe=aboutEditar;
+      this.toastr.info('Acerca De Ti actualizado con exito!', 'Tarjeta Actualizada');
       this.form.reset();
       document.getElementById("cerrarAcercaDeModal")?.click();
     
@@ -60,9 +63,21 @@ this.miPorfolio=data["aboutMe"];
     
   }
   mostrarDatosAbout(){
-    this.form.controls["acercaDe"].setValue(this.miPorfolio.acercaDe);
+    this.form.controls["acercaDe"].setValue(this.aboutMe.acercaDe);
   }
-}
 
+
+
+  
+  
+
+      
+  
+}
+  
+    
    
+
+
+
 
