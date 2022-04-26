@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Contact } from 'src/app/entidades/contact';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { ContactodatosService } from 'src/app/servicios/contactodatos.service';
 @Component({
   selector: 'app-contacto',
@@ -11,10 +12,10 @@ import { ContactodatosService } from 'src/app/servicios/contactodatos.service';
 export class ContactoComponent implements OnInit {
 contact!:Contact;
 form:FormGroup;
-usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
+usuarioAutenticado:boolean=false; //debe ir en falso para ocultar los botones
 
 
-  constructor(private miServicio:ContactodatosService, private miFormBuilder:FormBuilder,private toastr: ToastrService) {
+  constructor(private miServicio:ContactodatosService,private authService: AuthService, private miFormBuilder:FormBuilder,private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       nameUbication:['',[Validators.required]],
       mail:['',[Validators.required]]
@@ -27,6 +28,7 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
    }
 
   ngOnInit(): void {
+    this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.miServicio.obtenerDatos().subscribe(data =>{
       this.contact=data;
     });

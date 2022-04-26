@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { Persona } from 'src/app/entidades/persona';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -12,22 +13,10 @@ import { ToastrService } from 'ngx-toastr';
 export class EncabezadoComponent implements OnInit {
 persona!:Persona;
 form:FormGroup;
-usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
+usuarioAutenticado:boolean=false; //debe ir en falso para ocultar los botones
 
-//grabar_localStorage(){
- // let id:number=1;
-  
-  //let Persona={
-   // id:1,
-    //fullName:"karina Meza",
-   // tituloEncabezado:"Argentina Programa",
-   // url:"https://cuestiondigital.com/wp-content/uploads/2022/02/avatar.jpg",
-  //}
+  constructor(private miServicio:PersonaService,private authService: AuthService, private miFormBuilder:FormBuilder,private toastr: ToastrService,) {
 
-//localStorage.setItem("persona",JSON.stringify(this.persona));
-//}
-  constructor(private miServicio:PersonaService, private miFormBuilder:FormBuilder,private toastr: ToastrService,) {
-    //this.grabar_localStorage();
 
     this.form=this.miFormBuilder.group({
       fullName:['',[Validators.required,Validators.minLength(5)]],
@@ -45,6 +34,7 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
    }
 
   ngOnInit(): void {
+    this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.miServicio.obtenerDatosPersona().subscribe(data =>{
       this.persona=data;
   });

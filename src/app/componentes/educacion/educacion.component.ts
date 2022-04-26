@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Educacion } from 'src/app/entidades/educacion';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 @Component({
   selector: 'app-educacion',
@@ -16,9 +17,9 @@ accion = 'Agregar';
 id: number | undefined;
 
 
-usuarioAutenticado:boolean=true;//debe ir en falso para ocultar botones 
+usuarioAutenticado:boolean=false;//debe ir en falso para ocultar botones 
 
-  constructor(private miServicio:EducacionService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
+  constructor(private miServicio:EducacionService,private authService: AuthService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       title:['',[Validators.required]],
       school:['',[Validators.required]],
@@ -28,6 +29,7 @@ usuarioAutenticado:boolean=true;//debe ir en falso para ocultar botones
 
 
 ngOnInit(): void {
+  this.usuarioAutenticado = this.authService.usuarioAutenticado();
 
   this.obtenerEducacion();
 

@@ -17,6 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './componentes/Auth/login/login.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+
 
 
 @NgModule({
@@ -30,7 +33,9 @@ import { ToastrModule } from 'ngx-toastr';
     SkillsComponent,
     ContactoComponent,
     FooterComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    LoginComponent,
+    PortfolioComponent
     
   ],
   imports: [

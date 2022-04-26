@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Skills } from 'src/app/entidades/skills';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { SkillsService } from 'src/app/servicios/skills.service';
 
 @Component({
@@ -15,10 +16,10 @@ form:FormGroup;
 accion = 'Agregar';
 id: number | undefined;
 
-usuarioAutenticado:boolean=true;//deberia ir en falsoocultar los botones
+usuarioAutenticado:boolean=false;//deberia ir en falsoocultar los botones
 
 
-  constructor(private miServicio:SkillsService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
+  constructor(private miServicio:SkillsService,private authService: AuthService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
   this.form=this.miFormBuilder.group({
     skillName:['',[Validators.required]],
     score:['',[Validators.required]]
@@ -34,6 +35,7 @@ usuarioAutenticado:boolean=true;//deberia ir en falsoocultar los botones
 
 
   ngOnInit(): void {
+    this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.obtenerSkills();
   }
 

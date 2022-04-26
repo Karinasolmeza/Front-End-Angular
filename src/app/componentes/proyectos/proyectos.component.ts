@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Projects } from 'src/app/entidades/projects';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
 @Component({
   selector: 'app-proyectos',
@@ -15,9 +16,9 @@ export class ProyectosComponent implements OnInit {
   accion = 'Agregar';
   id:number | undefined;
 
-  usuarioAutenticado:boolean=true;//debe ir en falso para ocultar botones 
+  usuarioAutenticado:boolean=false;//debe ir en falso para ocultar botones 
 
-  constructor( private miServicio:ProyectosService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
+  constructor( private miServicio:ProyectosService, private authService: AuthService, private miFormBuilder:FormBuilder, private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       name:['',[Validators.required]],
       description:['',[Validators.required]],
@@ -44,8 +45,9 @@ get url()
 }
 
   ngOnInit(): void {
+    this.usuarioAutenticado = this.authService.usuarioAutenticado();
 
-  this.obtenerProjects()
+    this.obtenerProjects()
   
 }
 

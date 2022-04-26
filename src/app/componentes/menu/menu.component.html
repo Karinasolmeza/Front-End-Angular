@@ -1,3 +1,4 @@
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark page-navbar gradient">
   <div class="container">
 
@@ -39,7 +40,10 @@
         </ul>
 
     </div>
-     <button  *ngIf="usuarioAutenticado" type="button" class ="btn btn-dark login"  data-bs-toggle="modal" data-bs-target="#loginModal" >Login</button>
+
+      <button *ngIf="!usuarioAutenticado"  type="button" class ="btn btn-dark login" routerLink="/login">Login</button>
+      <button *ngIf="usuarioAutenticado" type="button" class ="btn btn-dark login" routerLink="/logout" (click)="logout()">Logout</button>
+     <!--<button  *ngIf="usuarioAutenticado" type="button" class ="btn btn-dark login"  data-bs-toggle="modal" data-bs-target="#loginModal" >Login</button>-->
   
     </div>
   
@@ -50,7 +54,7 @@
 
 
 
-<!-- Modal -->
+<!-- Modal 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -87,5 +91,4 @@
       </div>
     </div>
   </div>
-</div>
-
+</div>-->

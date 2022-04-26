@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AboutMe } from 'src/app/entidades/aboutMe';
 import { AboutService } from 'src/app/servicios/about.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 @Component({
   selector: 'app-acerca-de',
   templateUrl: './acerca-de.component.html',
@@ -12,9 +13,9 @@ export class AcercaDeComponent implements OnInit {
 
 aboutMe!:AboutMe;
 form:FormGroup;
-usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
+usuarioAutenticado:boolean=false; //debe ir en falso para ocultar los botones
 
-  constructor(private miServicio:AboutService,  private miFormBuilder:FormBuilder,private toastr: ToastrService) {
+  constructor(private miServicio:AboutService, private authService: AuthService, private miFormBuilder:FormBuilder,private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
       acercaDe:['',[Validators.required,Validators.minLength(10)]]
     })
@@ -25,6 +26,7 @@ usuarioAutenticado:boolean=true; //debe ir en falso para ocultar los botones
 }
 
   ngOnInit(): void {
+    this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.miServicio.obtenerDatosAbout().subscribe(data =>{
     this.aboutMe=data;
 

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { Experiencia } from 'src/app/entidades/experiencia';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { ExperiencialaboralService } from 'src/app/servicios/experiencialaboral.service';
 @Component({
   selector: 'app-experiencia',
@@ -14,9 +15,9 @@ experienciaList!:Experiencia[];
 form:FormGroup;
 accion = 'Agregar';
 id: number | undefined;
-usuarioAutenticado:boolean=true;//debe ir en false para ocultar botones 
+usuarioAutenticado:boolean=false;//debe ir en false para ocultar botones 
 
-  constructor(private miServicio:ExperiencialaboralService,  private miFormBuilder:FormBuilder, private toastr: ToastrService,) {
+  constructor(private miServicio:ExperiencialaboralService, private authService: AuthService, private miFormBuilder:FormBuilder, private toastr: ToastrService,) {
     this.form=this.miFormBuilder.group({
     tipoExperiencia:['',[Validators.required,Validators.minLength(10)]],
     empresa:['',[Validators.required]],
@@ -30,7 +31,8 @@ usuarioAutenticado:boolean=true;//debe ir en false para ocultar botones
   }
 
   ngOnInit(): void {
- this.obtenerExperiencia();
+    this.usuarioAutenticado = this.authService.usuarioAutenticado();
+    this.obtenerExperiencia();
 
   }
 
