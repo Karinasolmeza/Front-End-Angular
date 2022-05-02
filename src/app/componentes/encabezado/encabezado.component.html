@@ -82,17 +82,27 @@
               id="tituloEncabezado"
               formControlName="tituloEncabezado"
             />
+            <div *ngIf="tituloEncabezado?.invalid && tituloEncabezado?.touched">
+              <div *ngIf="tituloEncabezado?.errors?.['required']" class="text-danger">
+               Un titulo para su encabezado es necesario 
+
+                 </div>
           </div>
           <div class="mb-3">
-            <label for="url" class="form-label">Url de tu imagen</label>
+            <label for="url" class="form-label">Url de tu avatar o Foto de perfil</label>
             <input
               type="text"
               class="form-control"
               id="url"
               formControlName="url"
             />
+            <div *ngIf="avatarImg?.invalid && avatarImg?.touched">
+              <div *ngIf="avatarImg?.errors?.['required']" class="text-danger">
+              url de su Avatar es requerida
+
+                 </div>
           </div>
-        </form>
+        
       </div>
       
       <div class="modal-footer">
@@ -100,5 +110,4 @@
         <button type="button" class="btn btn-primary" (click)="guardarEncabezado()">Guardar</button>
      
     </div>
-  </div>
-</div>
+  

@@ -29,7 +29,16 @@ usuarioAutenticado:boolean=false;//debe ir en false para ocultar botones
   {
     return this.form.get("tipoExperiencia")
   }
+  get empresa(){
 
+    return this.form.get("empresa")
+  }
+
+  get detallesDeExperiencia(){
+    return this.form.get("detallesDeExperiencia")
+  }
+
+  
   ngOnInit(): void {
     this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.obtenerExperiencia();

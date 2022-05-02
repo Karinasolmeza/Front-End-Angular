@@ -20,6 +20,7 @@ export class EducacionService {
   getListEducacion():Observable<Educacion[]>{
     return this.http.get<Educacion[]>(this.url);
   }
+  
   updateEducacion(id:number, educacion:any):Observable<any>{
     return this.http.put(this.url +"/" +id,educacion)
 

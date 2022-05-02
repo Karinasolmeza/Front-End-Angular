@@ -22,8 +22,8 @@ export class ProyectosComponent implements OnInit {
     this.form=this.miFormBuilder.group({
       name:['',[Validators.required]],
       description:['',[Validators.required]],
-     url:['https://',[Validators.required]],
-     urlLink:['https://',[Validators.required]],
+      url:['https://',[Validators.required]],
+      urlLink:['https://',[Validators.required]],
     
 
     })
@@ -42,6 +42,9 @@ get url()
 {
   return this.form.get("url")
 
+}
+get urlLink(){
+  return this.form.get("urlLink")
 }
 
   ngOnInit(): void {

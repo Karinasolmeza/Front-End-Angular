@@ -85,6 +85,12 @@
                   id="description"
                   formControlName="description"
                 />
+                
+          <div *ngIf="description?.invalid && description?.touched">
+            <div *ngIf="description?.errors?.['required']" class="text-danger">
+             Descripción de su proyecto requerida
+
+               </div>
               </div>
               <div class="mb-3">
                 <label for="url" class="form-label">Imagen del Proyecto</label>
@@ -94,6 +100,12 @@
                   id="url"
                   formControlName="url"
                 />
+                
+          <div *ngIf="url?.invalid && url?.touched">
+            <div *ngIf="url?.errors?.['required']" class="text-danger">
+                Imagen representativa de su proyecto es requerida
+
+               </div>
               </div>
 <!--link-->
 
@@ -105,10 +117,16 @@
     id="urlLink"
     formControlName="urlLink"
   />
+  
+  <div *ngIf="urlLink?.invalid && urlLink?.touched">
+    <div *ngIf="urlLink?.errors?.['required']" class="text-danger">
+       link a su proyecto requerido
+
+       </div>
 </div>
 
               
-            </form>
+          
           </div>
           
           <div class="modal-footer">
@@ -117,8 +135,7 @@
           </div>
         </div>
       </div>
-    </div>
-    
+  
     
       
 

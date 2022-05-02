@@ -26,7 +26,9 @@ usuarioAutenticado:boolean=false; //debe ir en falso para ocultar los botones
    {
      return this.form.get("nameUbication")
    }
-
+get mail(){
+  return this.form.get("mail")
+}
   ngOnInit(): void {
     this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.miServicio.obtenerDatos().subscribe(data =>{

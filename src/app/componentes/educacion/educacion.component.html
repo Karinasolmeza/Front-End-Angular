@@ -53,16 +53,17 @@
   
         <div class="modal-body">
 
-          <form [formGroup]="form" (ngSubmit)="guardarEducacion()">
+          <form [formGroup]="form" >
             <div class="mb-3">
               <label for="title" class="form-label">Titulo recibido</label>
               <input type="text" class="form-control" id="title" formControlName="title">
-  
-              
-                    </div>
-      
 
-  
+              <div *ngIf="title?.invalid && title?.touched">
+                <div *ngIf="title?.errors?.['required']" class="text-danger">
+                    Titulo recibido es requerido
+ 
+                   </div>
+              </div>      
             <div class="mb-3">
               <label for="school" class="form-label"
                 >Institución</label
@@ -73,6 +74,13 @@
                 id="school"
                 formControlName="school"
               />
+              <div *ngIf="school?.invalid && school?.touched">
+                <div *ngIf="school?.errors?.['required']" class="text-danger">
+                    Nombre de Institución habilitante de su titulo  es requerido
+ 
+                   </div>
+      
+            </div>
             </div>
             <div class="mb-3">
               <label for="resume" class="form-label">Resuma su titulo recibido</label>
@@ -82,10 +90,16 @@
                 id="resume"
                 formControlName="resume"
               />
+              <div *ngIf="resume?.invalid && resume?.touched">
+                <div *ngIf="resume?.errors?.['required']" class="text-danger">
+             Resumen de su estudio adquirido es requerido
+ 
+                   </div>
             </div>
-          
-      
+            </div>
+            </div>
           </form>
+      
         <div class="modal-footer">
           <button type="button" id="cerrarModalEducacion" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
           <button [disabled]="this.form.invalid" type="submit"   class="btn btn-primary" (click)="guardarEducacion()" >Guardar</button>

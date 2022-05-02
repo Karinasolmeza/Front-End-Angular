@@ -84,10 +84,16 @@
               formControlName="score"
             />
           </div>
+          <div *ngIf="score?.invalid && score?.touched">
+            <div *ngIf="score?.errors?.['required']" class="text-danger">
+                Su Nivel en este Skill es requerido
 
+               </div>
+      
+        </div> 
+         </div> 
           
-          </div>
-        </form>
+      
 
       <div class="modal-footer">
         <button type="button" id="cerrarModalSkill" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

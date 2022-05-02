@@ -26,7 +26,18 @@ usuarioAutenticado:boolean=false;//debe ir en falso para ocultar botones
       resume:['',[Validators.required]]
     })
    }
+get title(){
+  return this.form.get("title")
+}
 
+get school(){
+  return this.form.get("school")
+}
+
+
+get resume(){
+  return this.form.get("resume")
+}
 
 ngOnInit(): void {
   this.usuarioAutenticado = this.authService.usuarioAutenticado();

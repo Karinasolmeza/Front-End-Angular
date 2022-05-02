@@ -10,7 +10,7 @@
 
 <li *ngFor="let experiencia of experienciaList">
 
-  <div class="experiencia-laboral group" id="experiencia-laboral" id="agregarExperiencia" id="eliminarExperiencia">
+<div class="experiencia-laboral group" id="experiencia-laboral"  >
 
 <div class="item">
 <div class="row">
@@ -46,7 +46,7 @@
       <div class="modal-body">
         <form [formGroup]="form">
           <div class="mb-3">
-            <label for="tipoExperiencia" class="form-label">Experiencia laboral</label>
+            <label for="tipoExperiencia" class="form-label">Tipo de Experiencia laboral</label>
             <input type="text" class="form-control" id="tipoExperiencia" formControlName="tipoExperiencia">
 
           <div *ngIf="tipoExperiencia?.invalid && tipoExperiencia?.touched">
@@ -70,6 +70,11 @@
               id="empresa"
               formControlName="empresa"
             />
+            <div *ngIf="empresa?.invalid && empresa?.touched">
+              <div *ngIf="empresa?.errors?.['required']" class="text-danger">
+                 Nombre de la empresa en la q trabajó es requerida
+
+                 </div>
           </div>
 
           <div class="mb-3">
@@ -82,6 +87,11 @@
               id="detallesDeExperiencia"
               formControlName="detallesDeExperiencia"
             />
+            <div *ngIf="detallesDeExperiencia?.invalid && detallesDeExperiencia?.touched">
+              <div *ngIf="detallesDeExperiencia?.errors?.['required']" class="text-danger">
+               Detalles de su experiencia es requerida
+
+                 </div>
           </div>
           
         

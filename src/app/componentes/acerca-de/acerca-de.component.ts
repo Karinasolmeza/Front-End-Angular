@@ -17,7 +17,8 @@ usuarioAutenticado:boolean=false; //debe ir en falso para ocultar los botones
 
   constructor(private miServicio:AboutService, private authService: AuthService, private miFormBuilder:FormBuilder,private toastr: ToastrService) {
     this.form=this.miFormBuilder.group({
-      acercaDe:['',[Validators.required,Validators.minLength(10)]]
+  acercaDe:['',[Validators.required,Validators.minLength(10)]]
+   // acercaDe:['',[Validators.required]],
     })
    }
    get acercaDe()

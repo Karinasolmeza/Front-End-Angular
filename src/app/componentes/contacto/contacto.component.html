@@ -13,13 +13,13 @@
    
         <div class="col-12">
           <i class="ion-person icon"></i>
-          <span>{{contact.nameUbication}}</span>
+          <span>&nbsp;{{contact.nameUbication}}</span>
       
       </div>
       
         <div class="col-12">
-          <i class="ion-at icon"></i>
-          <span>{{contact.mail}}</span>
+          <i class="ion-at icon" ></i>
+          <span>&nbsp;{{contact.mail}}</span>
       
       </div>
     </div>
@@ -72,16 +72,22 @@
               id="mail"
               formControlName="mail"
             />
+            
+            <div *ngIf="mail?.invalid && mail?.touched">
+              <div *ngIf="mail?.errors?.['required']" class="text-danger">
+                 Mail de contacto Requerido
+
+                 </div>
+
           </div>
         
-        </form>
+      
       </div>
       
       <div class="modal-footer">
         <button type="button" id="cerrarModalContacto" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
         <button type="button" class="btn btn-primary" (click)="guardarContacto()">Guardar</button>
       </div>
-    </div>
-  </div>
-</div>
+
+
 

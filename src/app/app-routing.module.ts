@@ -4,10 +4,10 @@ import { LoginComponent } from './componentes/Auth/login/login.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const routes: Routes = [
-  {path: 'home', component: PortfolioComponent },
+  {path: '', component: PortfolioComponent },
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo: '/home', pathMatch:'full' },
-  { path: '**', redirectTo: '/home'}
+  {path: '', redirectTo: '', pathMatch:'full' },
+  { path: '**', redirectTo: ''}
 ];
 
  

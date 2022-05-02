@@ -23,13 +23,18 @@ usuarioAutenticado:boolean=false;//deberia ir en falsoocultar los botones
   this.form=this.miFormBuilder.group({
     skillName:['',[Validators.required]],
     score:['',[Validators.required]]
-    
+ 
   })
  }
+ 
  get skillName(){
    return this.form.get("skills")
  }
-
+get score(){
+  return this.form.get("score")
+  
+  
+}
 
 
 

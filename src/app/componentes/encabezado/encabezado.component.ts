@@ -32,7 +32,13 @@ usuarioAutenticado:boolean=false; //debe ir en falso para ocultar los botones
      return this.form.get("fullName")
 
    }
+   get tituloEncabezado(){
+     return this.form.get("tituloEncabezado")
+   }
 
+   get avatarImg (){
+     return this.form.get("url")
+   }
   ngOnInit(): void {
     this.usuarioAutenticado = this.authService.usuarioAutenticado();
     this.miServicio.obtenerDatosPersona().subscribe(data =>{
