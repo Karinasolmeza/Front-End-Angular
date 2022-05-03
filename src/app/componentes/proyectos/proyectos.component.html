@@ -25,13 +25,11 @@
         <button  *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#proyectosModal"(click)="editarProyecto(projects)" ><i class="ion-edit" title="edit"></i></button>
         <button *ngIf="usuarioAutenticado"class=" btn-danger btn-sm"(click)="eliminarProyecto(projects.id)"><i class="ion-close" title="delete"></i></button>
       
-
-
         <p>{{projects.name}}</p>
         <p class="text-muted">{{projects.description}}<br/><br/>
         
            
-            <a [href]="projects.linkProject" class="btn btn-dark login" role="button" aria-disabled="true">Visitar</a>
+        <a [href]="projects.linkProject" class="btn btn-dark login" role="button" aria-disabled="true">Visitar</a>
            
          
         </p>

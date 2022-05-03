@@ -1,17 +1,99 @@
 
 <footer class="page-footer">
+ 
+  <div class="container">
 
-    <div class="container">
-      <div class="social-icons">
-        <a href="https://www.facebook.com/Arrydays/"><i class="ion-social-facebook" title="Facebook"></i></a>
-        <a href="https://www.instagram.com/kariu_sol/?hl=es-la"><i class="ion-social-instagram-outline" title="Instagram"></i></a>
+      <div *ngFor="let footer of footerList" class="social-icons">
+
+        <div class="container col-lg-12">
         
+          <button  *ngIf="usuarioAutenticado" data-bs-toggle="modal" data-bs-target="#footerModal"(click)="editarFooter(footer)" ><i class="ion-edit" title="edit"></i></button>
+          </div> 
+<p></p>
+        <a [href]="footer.linkFacebook"><i class="ion-social-facebook" title="Facebook"></i></a>
+        <a [href]="footer.linkInstagram"><i class="ion-social-instagram-outline" title="Instagram"></i></a>
+        <a [href]="footer.linkEdin"><i class="ion-social-linkedin-outline" title="Linkedin"></i></a>
       </div>
     </div>
-    
-    
-
+    <p> Made with <span style="color:red">❤</span> by Karina Meza</p>
     </footer>
 
 
 
+  <!--modal-->
+  <div
+  class="modal fade"
+  id="footerModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> {{accion}} Link a tus redes sociales </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="form">
+         
+<!--link--><div class="mb-3">
+<label for="linkFacebook" class="form-label">Link de Facebook</label>
+<input
+type="text"
+class="form-control"
+id="linkFacebook"
+formControlName="linkFacebook"
+/>
+
+<div *ngIf="linkFacebook?.invalid && linkFacebook?.touched">
+<div *ngIf="linkFacebook?.errors?.['required']" class="text-danger">
+   link a Facebook es Requerido
+
+   </div>
+</div>
+<!--link--><div class="mb-3">
+  <label for="linkInstagram" class="form-label">Link de Instagram</label>
+  <input
+  type="text"
+  class="form-control"
+  id="linkInstagram"
+  formControlName="linkInstagram"
+  />
+  
+  <div *ngIf="linkInstagram?.invalid && linkInstagram?.touched">
+  <div *ngIf="linkInstagram?.errors?.['required']" class="text-danger">
+     link a Instagram es Requerido
+  
+     </div>
+  </div>
+      </div>
+    
+
+      <!--link--><div class="mb-3">
+  <label for="linkEdin" class="form-label">Link a Linkedin</label>
+  <input
+  type="text"
+  class="form-control"
+  id="linkEdin"
+  formControlName="linkEdin"
+  />
+  
+  <div *ngIf="linkEdin?.invalid && linkEdin?.touched">
+  <div *ngIf="linkEdin?.errors?.['required']" class="text-danger">
+     Linkedin es Requerido 
+  
+     </div>
+  </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="cerrarModalProyectos" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
+        <button [disabled]="this.form.invalid" type="submit"   class="btn btn-primary" (click)="guardarFooter()" >Guardar</button>
+      </div>
+    </div>
