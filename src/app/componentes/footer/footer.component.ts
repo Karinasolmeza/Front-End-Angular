@@ -24,9 +24,8 @@ export class FooterComponent implements OnInit {
  
     linkFacebook:['https://',[Validators.required]],
     linkInstagram:['https://',[Validators.required]],
-    linkEdin:['https://',[Validators.required]],
-   
-
+    linkTwitter :['https://',[Validators.required]],
+    linkEind:['https://',[Validators.required]],
   
 
   })
@@ -41,7 +40,11 @@ get linkInstagram()
 return this.form.get("linkInstagram")
 
 }
+get linkTwitter()
+{
+return this.form.get("linkTwitter")
 
+}
 get linkEdin(){
 return this.form.get("linkEdin")
 }
@@ -75,17 +78,15 @@ guardarFooter() {
 
 
    linkFacebook:this.form.get("linkFacebook")?.value,
-   linkTwitter:this.form.get("linkTwitter")?.value,
    linkInstagram:this.form.get("linkInstagram")?.value,
-   linkEdin:this.form.get("linkEdin")?.value,
-   idPersona: this.form.get('idPersona')?.value,
+   linkEdin: this.form.controls["linkEdin"].value,
    
   }
 
   if (this.id == undefined) {
-    // Agregamos una nuevo proyecto
+    // Agregamos una nuevo footer
       this.miServicio.saveFooter(footer).subscribe(data => {
-        this.toastr.success('Link registrado con exito!', 'Link Registrada');
+        this.toastr.success('Links registrado con exito!', 'Links Registrada');
         this.obtenerFooter();
         this.form.reset();
       }, error => {
@@ -94,7 +95,7 @@ guardarFooter() {
       })
   } else {
 
- footer.id = this.id;
+    footer.id = this.id;
     // Editamos educacion
       this.miServicio.updateFooter(this.id,footer).subscribe(data => {
       this.form.reset();
@@ -111,32 +112,34 @@ guardarFooter() {
  
 }
 
+ 
 editarFooter(footer: any) {
   this.accion = 'Editar';
   this.id = footer.id;
   
   this.form.patchValue({
-   
- linkFacebook:footer.linkFacebook,
- linkInstagram:footer.linkInstagram,
- linkTwitter:footer.linkTwitter,
- linkEdin:footer.linkEdin
+ 
+  linkFacebook:footer.linkFacebook,
+  linkInstagram:footer.linkInstagram,
+  linkEdin:footer.linkEdin,
 
   })
 }
 
 
-  
+
 eliminarFooter(id: number){
-  
-  this.miServicio.deleteFooter(id).subscribe(data=>{
-    this.toastr.error( 'Link fue eliminado con exito!','Link eliminado');
-    this.obtenerFooter();
-  })
+
+this.miServicio.deleteFooter(id).subscribe(data=>{
+  this.toastr.error( 'Links fue eliminados con exito!','Links eliminados');
+  this.obtenerFooter();
+})
+}
 }
 
 
 
-  }
+
+
 
 
