@@ -6,7 +6,7 @@ import { Experiencia } from '../entidades/experiencia';
   providedIn: 'root'
 })
 export class ExperiencialaboralService {
-  url:string="http://localhost:8080/experiencia";
+  url:string="https://backend-karinameza.herokuapp.com/experiencia";
 
   constructor(private http:HttpClient){ }
 

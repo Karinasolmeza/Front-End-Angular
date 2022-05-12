@@ -6,7 +6,7 @@ import { Skills } from "../entidades/skills";
   providedIn: 'root'
 })
 export class SkillsService {
-  url:string="http://localhost:8080/skills";
+  url:string="https://backend-karinameza.herokuapp.com/skills";
 
   constructor(private http:HttpClient) { }
 

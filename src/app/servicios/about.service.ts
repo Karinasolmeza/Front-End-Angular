@@ -6,7 +6,7 @@ import { AboutMe } from '../entidades/aboutMe';
   providedIn: 'root'
 })
 export class AboutService {
-  url:string="http://localhost:8080/aboutme";
+  url:string="https://backend-karinameza.herokuapp.com/aboutme";
 
   constructor(private http:HttpClient){}
 

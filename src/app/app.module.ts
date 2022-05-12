@@ -12,13 +12,21 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './componentes/Auth/login/login.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { SpinnerIntercepor } from './entidades/interceptors/spinner.interceptor';
+import { SpinnerModule } from './componentes/spinner/spinner.module';
+import { SpinnerComponent } from './componentes/spinner/spinner.component';
+
+
+
+
 
 
 
@@ -35,7 +43,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     FooterComponent,
     ProyectosComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+ 
+  
     
   ],
   imports: [
@@ -44,9 +54,19 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SpinnerModule,
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+ 
+  
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerIntercepor, multi: true }
+  ],
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }
+   
+
+

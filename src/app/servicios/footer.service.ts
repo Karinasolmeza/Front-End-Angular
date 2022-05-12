@@ -10,7 +10,7 @@ export class FooterService {
 
 
 
-url:string="http://localhost:8080/footer";
+url:string="https://backend-karinameza.herokuapp.com/footer";
 
 
 constructor(private http:HttpClient) { }

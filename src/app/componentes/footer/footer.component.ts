@@ -25,7 +25,8 @@ export class FooterComponent implements OnInit {
     linkFacebook:['https://',[Validators.required]],
     linkInstagram:['https://',[Validators.required]],
     linkTwitter :['https://',[Validators.required]],
-    linkEind:['https://',[Validators.required]],
+    linkEdin:['https://',[Validators.required]],
+    linkGit:['https://',[Validators.required]],
   
 
   })
@@ -45,8 +46,13 @@ get linkTwitter()
 return this.form.get("linkTwitter")
 
 }
+
 get linkEdin(){
 return this.form.get("linkEdin")
+}
+
+get linkGit(){
+  return this.form.get("linkGit")
 }
 
 
@@ -80,6 +86,7 @@ guardarFooter() {
    linkFacebook:this.form.get("linkFacebook")?.value,
    linkInstagram:this.form.get("linkInstagram")?.value,
    linkEdin: this.form.controls["linkEdin"].value,
+   linkGit: this.form.controls["linkGit"].value,
    
   }
 
@@ -122,6 +129,7 @@ editarFooter(footer: any) {
   linkFacebook:footer.linkFacebook,
   linkInstagram:footer.linkInstagram,
   linkEdin:footer.linkEdin,
+  linkGit:footer.linkGit,
 
   })
 }

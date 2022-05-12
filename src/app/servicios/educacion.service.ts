@@ -7,7 +7,7 @@ import { Educacion } from '../entidades/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
-  url:string="http://localhost:8080/educacion";
+  url:string="https://backend-karinameza.herokuapp.com/educacion";
 
   constructor(private http:HttpClient) { }
 

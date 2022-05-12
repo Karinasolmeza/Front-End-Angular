@@ -6,7 +6,7 @@ import { Projects } from '../entidades/projects';
   providedIn: 'root'
 })
 export class ProyectosService {
-  url:string="http://localhost:8080/projects";
+  url:string="https://backend-karinameza.herokuapp.com/projects";
 
 
   constructor(private http:HttpClient) { }

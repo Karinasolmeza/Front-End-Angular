@@ -2,7 +2,8 @@
 <footer class="page-footer">
  
   <div class="container">
-
+   <div class="row justify-content-center">
+    <!--<div class="row align-items-center"> -->
       <div *ngFor="let footer of footerList" class="social-icons">
 
         <div class="container col-lg-12">
@@ -13,8 +14,10 @@
         <a [href]="footer.linkFacebook"><i class="ion-social-facebook" title="Facebook"></i></a>
         <a [href]="footer.linkInstagram"><i class="ion-social-instagram-outline" title="Instagram"></i></a>
         <a [href]="footer.linkEdin"><i class="ion-social-linkedin-outline" title="Linkedin"></i></a>
+        <a [href]="footer.linkGit"><i class="ion-social-github-outline" title="GitHub"></i></a>
       </div>
     </div>
+  </div>
     <p> Made with <span style="color:red">❤</span> by Karina Meza</p>
     </footer>
 
@@ -91,6 +94,24 @@ formControlName="linkFacebook"
      </div>
   </div>
       </div>
+
+
+    <!--link--><div class="mb-3">
+      <label for="linkGit" class="form-label">Link a GitHub</label>
+      <input
+      type="text"
+      class="form-control"
+      id="linkGit"
+      formControlName="linkGit"
+      />
+      
+      <div *ngIf="linkGit?.invalid && linkGit?.touched">
+      <div *ngIf="linkGit?.errors?.['required']" class="text-danger">
+        GitHub es Requerido 
+      
+         </div>
+      </div>
+          </div>
 
       <div class="modal-footer">
         <button type="button" id="cerrarModalProyectos" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>

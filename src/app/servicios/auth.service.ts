@@ -7,7 +7,7 @@ import { LoginDto } from '../entidades/LoginDto';
   providedIn: 'root'
 })
 export class AuthService {
-  url:string="http://localhost:8080/login"
+  url:string="https://backend-karinameza.herokuapp.com/login"
 
   constructor(private http: HttpClient) { }
 
