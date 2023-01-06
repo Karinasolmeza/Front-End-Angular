@@ -1,0 +1,68 @@
+[debug] [2022-12-29T18:00:18.728Z] ----------------------------------------------------------------------
+[debug] [2022-12-29T18:00:18.732Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\karin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-29T18:00:18.732Z] CLI Version:   10.7.2
+[debug] [2022-12-29T18:00:18.733Z] Platform:      win32
+[debug] [2022-12-29T18:00:18.733Z] Node Version:  v16.14.0
+[debug] [2022-12-29T18:00:18.738Z] Time:          Thu Dec 29 2022 15:00:18 GMT-0300 (hora estándar de Argentina)
+[debug] [2022-12-29T18:00:18.738Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-29T18:00:18.842Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-29T18:00:18.843Z] > authorizing via signed-in user (karinasolmeza83@gmail.com)
+[debug] [2022-12-29T18:00:18.843Z] [iam] checking project portfolio-karinameza for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-29T18:00:18.845Z] > refreshing access token with scopes: []
+[debug] [2022-12-29T18:00:18.846Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-12-29T18:00:19.000Z] <<< HTTP RESPONSE 400 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Thu, 29 Dec 2022 18:00:18 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-12-29T18:00:19.004Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions [none]
+[debug] [2022-12-29T18:00:19.004Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-29T18:00:19.867Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions 401
+[debug] [2022-12-29T18:00:19.867Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2022-12-29T18:00:19.868Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-29T18:00:19.869Z] > refreshing access token with scopes: []
+[debug] [2022-12-29T18:00:19.869Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-12-29T18:00:19.953Z] <<< HTTP RESPONSE 400 {"pragma":"no-cache","date":"Thu, 29 Dec 2022 18:00:19 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-12-29T18:00:19.955Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-karinameza [none]
+[debug] [2022-12-29T18:00:20.071Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-karinameza 401
+[debug] [2022-12-29T18:00:20.071Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-karinameza {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2022-12-29T18:00:20.071Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-29T18:00:20.159Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\karin\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:47:12)
+    at RetryOperation._fn (C:\Users\karin\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project portfolio-karinameza. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-12-29T18:17:01.285Z] ----------------------------------------------------------------------
+[debug] [2022-12-29T18:17:01.288Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\karin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-29T18:17:01.288Z] CLI Version:   10.7.2
+[debug] [2022-12-29T18:17:01.288Z] Platform:      win32
+[debug] [2022-12-29T18:17:01.288Z] Node Version:  v16.14.0
+[debug] [2022-12-29T18:17:01.295Z] Time:          Thu Dec 29 2022 15:17:01 GMT-0300 (hora estándar de Argentina)
+[debug] [2022-12-29T18:17:01.295Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-29T18:17:01.417Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-29T18:17:01.418Z] > authorizing via signed-in user (karinasolmeza83@gmail.com)
+[debug] [2022-12-29T18:17:01.418Z] [iam] checking project portfolio-karinameza for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-29T18:17:01.422Z] > refreshing access token with scopes: []
+[debug] [2022-12-29T18:17:01.424Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-12-29T18:17:01.609Z] <<< HTTP RESPONSE 400 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Thu, 29 Dec 2022 18:17:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-12-29T18:17:01.614Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions [none]
+[debug] [2022-12-29T18:17:01.614Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-29T18:17:02.643Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions 401
+[debug] [2022-12-29T18:17:02.644Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portfolio-karinameza:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2022-12-29T18:17:02.645Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-29T18:17:02.646Z] > refreshing access token with scopes: []
+[debug] [2022-12-29T18:17:02.646Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-12-29T18:17:02.878Z] <<< HTTP RESPONSE 400 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Thu, 29 Dec 2022 18:17:02 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-12-29T18:17:02.883Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-karinameza [none]
+[debug] [2022-12-29T18:17:03.123Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-karinameza 401
+[debug] [2022-12-29T18:17:03.123Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portfolio-karinameza {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2022-12-29T18:17:03.123Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2022-12-29T18:17:03.214Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\karin\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:47:12)
+    at RetryOperation._fn (C:\Users\karin\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project portfolio-karinameza. Please make sure the project exists and your account has permission to access it.

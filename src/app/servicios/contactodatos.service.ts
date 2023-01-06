@@ -6,7 +6,8 @@ import { Contact } from '../entidades/contact';
   providedIn: 'root'
 })
 export class ContactodatosService {
-  url:string="https://backend-karinameza.herokuapp.com/contact";
+  //url:string="https://backend-karinameza.herokuapp.com/contact";
+  url:string="https://back-end-frcm.onrender.com/contact";
   constructor(private http:HttpClient) { }
 
 

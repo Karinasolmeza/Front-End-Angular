@@ -6,7 +6,8 @@ import { Skills } from "../entidades/skills";
   providedIn: 'root'
 })
 export class SkillsService {
-  url:string="https://backend-karinameza.herokuapp.com/skills";
+ // url:string="https://backend-karinameza.herokuapp.com/skills";
+  url:string="https://back-end-frcm.onrender.com/skills";
 
   constructor(private http:HttpClient) { }
 

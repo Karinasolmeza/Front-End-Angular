@@ -6,7 +6,9 @@ import { Persona } from '../entidades/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-url:string="https://backend-karinameza.herokuapp.com/persona";
+//url:string="https://backend-karinameza.herokuapp.com/persona";
+url:string="https://back-end-frcm.onrender.com/persona";
+
 
   constructor(private http:HttpClient){}
 

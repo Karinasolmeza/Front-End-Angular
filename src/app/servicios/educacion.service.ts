@@ -7,7 +7,8 @@ import { Educacion } from '../entidades/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
-  url:string="https://backend-karinameza.herokuapp.com/educacion";
+  //url:string="https://backend-karinameza.herokuapp.com/educacion";
+  url:string="https://back-end-frcm.onrender.com/educacion";
 
   constructor(private http:HttpClient) { }
 
