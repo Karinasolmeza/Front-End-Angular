@@ -11,7 +11,7 @@ export class FooterService {
 
 
 //url:string="https://backend-karinameza.herokuapp.com/footer";
-url:string="https://back-end-frcm.onrender.com/footer";
+url:string="https://portfolio-karinasolmeza.koyeb.app/footer";
 
 
 constructor(private http:HttpClient) { }

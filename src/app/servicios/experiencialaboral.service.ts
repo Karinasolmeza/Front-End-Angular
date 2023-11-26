@@ -7,7 +7,7 @@ import { Experiencia } from '../entidades/experiencia';
 })
 export class ExperiencialaboralService {
  // url:string="https://backend-karinameza.herokuapp.com/experiencia";
-  url:string="https://back-end-frcm.onrender.com/experiencia";
+  url:string="https://portfolio-karinasolmeza.koyeb.app/experiencia";
 
   constructor(private http:HttpClient){ }
 

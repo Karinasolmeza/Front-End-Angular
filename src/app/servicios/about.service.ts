@@ -7,7 +7,7 @@ import { AboutMe } from '../entidades/aboutMe';
 })
 export class AboutService {
   //url:string="https://backend-karinameza.herokuapp.com/aboutme";
-  url:string="https://back-end-frcm.onrender.com/aboutme";
+  url:string="https://portfolio-karinasolmeza.koyeb.app/aboutme";
   constructor(private http:HttpClient){}
 
   

@@ -8,7 +8,7 @@ import { Educacion } from '../entidades/educacion';
 })
 export class EducacionService {
   //url:string="https://backend-karinameza.herokuapp.com/educacion";
-  url:string="https://back-end-frcm.onrender.com/educacion";
+  url:string="https://portfolio-karinasolmeza.koyeb.app/educacion";
 
   constructor(private http:HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Projects } from '../entidades/projects';
 })
 export class ProyectosService {
   //url:string="https://backend-karinameza.herokuapp.com/projects";
-  url:string="https://back-end-frcm.onrender.com/projects";
+  url:string="https://portfolio-karinasolmeza.koyeb.app/projects";
 
 
   constructor(private http:HttpClient) { }

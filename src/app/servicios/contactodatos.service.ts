@@ -7,7 +7,7 @@ import { Contact } from '../entidades/contact';
 })
 export class ContactodatosService {
   //url:string="https://backend-karinameza.herokuapp.com/contact";
-  url:string="https://back-end-frcm.onrender.com/contact";
+  url:string="https://portfolio-karinasolmeza.koyeb.app/contact";
   constructor(private http:HttpClient) { }
 
 
